@@ -5,7 +5,7 @@ using System;
 
 public class AnimationHandler : MonoBehaviour
 {
-    [SerializeField] private Animator animator = null;
+    public Animator animator = null;
 
     private void Awake()
     {
@@ -15,8 +15,5 @@ public class AnimationHandler : MonoBehaviour
 
     public virtual void OnReceiveEvent(bool eventInput) { }
     public virtual void OnReceiveEvent(int eventInput) { }
-    public virtual void SetBool(string boolName, bool boolStatus)
-    {
-        animator.SetBool(boolName,boolStatus);
-    }
+    
 }

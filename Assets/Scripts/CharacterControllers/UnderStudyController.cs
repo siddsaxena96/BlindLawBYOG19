@@ -10,15 +10,10 @@ public class UnderStudyController : MonoBehaviour
 
     [Header("Scene 1 : Chamber")]
     [SerializeField] private Transform chamberStandingPoint = null;
-
-    private void Start()
-    {
-        WalkToChamberStandingPoint();
-    }
-
+ 
     public void WalkToChamberStandingPoint()
     {
-        animationHandler.SetBool("WalkOn", true);
+        animationHandler.animator.SetBool("WalkOn", true);
         OnWalkTo(chamberStandingPoint);
     }
 
@@ -34,6 +29,6 @@ public class UnderStudyController : MonoBehaviour
             transform.position = Vector2.Lerp(transform.position, destination, movementSpeed);
             yield return new WaitForSeconds(0.1f);
         }
-        animationHandler.SetBool("WalkOn", false);
+        animationHandler.animator.SetBool("WalkOn", false);
     }
 }
