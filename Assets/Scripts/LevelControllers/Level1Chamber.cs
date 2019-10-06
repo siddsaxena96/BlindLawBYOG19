@@ -19,7 +19,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
     private int levelStepIndex = -1;
     public int levelStepCount = -1;
 
-    private readonly string DialogueSequence1 = "U: The accused \n P: and you answered? ";
+    private readonly string[] DialogueSequence1 = { "U: The accused", "P: and you answered? " };
 
     private void Start()
     {
@@ -66,10 +66,10 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
         client1.OnSit();
     }
 
-    private void StartDialogueSequence(string dialogueSequence)
+    private void StartDialogueSequence(string[] dialogueSequence)
     {
         dialogueStarted = true;
-        uiController.NormalConversation(dialogueSequence);
+        uiController.ArrayConversation(dialogueSequence);
         StartCoroutine(WaitForDialogueToEnd());
     }
 

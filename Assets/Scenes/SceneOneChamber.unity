@@ -4663,6 +4663,10 @@ MonoBehaviour:
   wallStandingPoint: {fileID: 2133337598}
   chairLeft: {fileID: 1722554664}
   chairRight: {fileID: 418457521}
+  uiController: {fileID: 1927955003}
+  OnConversationEnded: {fileID: 11400000, guid: 2a63a8d8be6b1f44c86d71e057378c3b,
+    type: 2}
+  levelStepCount: -1
 --- !u!4 &1300241635
 Transform:
   m_ObjectHideFlags: 0
@@ -6392,6 +6396,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1927955003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2554564073393737995, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    type: 3}
+  m_PrefabInstance: {fileID: 685189747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18862f7af73d094ea13fbe9ff1a759b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1932653755
 GameObject:
   m_ObjectHideFlags: 0

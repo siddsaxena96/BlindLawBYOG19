@@ -33,6 +33,14 @@ public class UIController : MonoBehaviour, IEventListener
         OnConversationEvent?.Raise(temp);
     }
 
+    public void ArrayConversation(string[] dialogues)
+    {
+        List<object> temp = new List<object>();
+            temp.Add(dialogues);
+        
+        OnConversationEvent?.Raise(temp);
+    }
+
     // Update is called once per frame
     void Update()
     {

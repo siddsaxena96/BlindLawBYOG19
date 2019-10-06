@@ -15,7 +15,7 @@ public class ConversationController : MonoBehaviour, IEventListener
     public string[] Dialogues => dialogues;
     private int dialogueIndex = -1;
     private int dialogueCount => dialogues.Length;
-    private bool hasNextDialogue => dialogueIndex < dialogues.Length - 2;
+    private bool hasNextDialogue => dialogueIndex < dialogues.Length - 1;
     [SerializeField] private Button interactButton = null;
     private Coroutine coroutine = null;
 
@@ -23,6 +23,7 @@ public class ConversationController : MonoBehaviour, IEventListener
     private bool clicked = false;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
     [SerializeField] private Core.Events.Event OnConversationStarted, OnConversationEnded = null;
+    
 
 
     void Start()
@@ -68,9 +69,10 @@ public class ConversationController : MonoBehaviour, IEventListener
 
             foreach (object param in parameters)
             {
-                var text = (string)param as string;
-                text.Trim();
-                dialogues = text.Split(new Char[] { '?', '!', ',', '.', '\n' });
+                string[] text = (string[])param as string[];
+                dialogues = text;
+                //text.Trim();
+                //dialogues = text.Split(new Char[] { '?', '!', ',', '.', '\n' });
                 if(dialogueCount > 0)
                 {
                     OnConversationStarted?.Raise();
