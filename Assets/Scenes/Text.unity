@@ -320,6 +320,10 @@ MonoBehaviour:
   interactButton: {fileID: 192185707}
   OnConversationEvent: {fileID: 11400000, guid: 3502ab6c1fc82d241a838f5efec697ae,
     type: 2}
+  OnConversationStarted: {fileID: 11400000, guid: 17620d6230157cc479b2118073714672,
+    type: 2}
+  OnConversationEnded: {fileID: 11400000, guid: 2a63a8d8be6b1f44c86d71e057378c3b,
+    type: 2}
 --- !u!1 &1411958232
 GameObject:
   m_ObjectHideFlags: 0

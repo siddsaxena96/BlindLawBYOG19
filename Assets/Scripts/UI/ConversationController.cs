@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System;
 using System.Text.RegularExpressions;
 
-public class ConversationController : VuforiaMonoBehaviour, IEventListener
+public class ConversationController : MonoBehaviour, IEventListener
 {
 
     [SerializeField] private Text text = null;
@@ -22,6 +22,7 @@ public class ConversationController : VuforiaMonoBehaviour, IEventListener
     private readonly string convoString = "convoString";
     private bool clicked = false;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
+    [SerializeField] private Core.Events.Event OnConversationStarted, OnConversationEnded = null;
 
 
     void Start()
@@ -62,36 +63,48 @@ public class ConversationController : VuforiaMonoBehaviour, IEventListener
 
     public void OnEventRaisedWithParameters(List<object> parameters)
     {
-        foreach (object param in parameters)
+        if (parameters != null)
         {
-            var text = (string)param as string;
-            dialogues = text.Split(new Char[] { '?', '!', ',', '.', ':', '\t', '\n' });
-            //NormalConversation(text);
-            TryConversation();
+
+            foreach (object param in parameters)
+            {
+                var text = (string)param as string;
+                dialogues = text.Split(new Char[] { '?', '!', ',', '.', ':', '\t', '\n' });
+                if(dialogueCount > 0)
+                {
+                    OnConversationStarted?.Raise();
+                    TryConversation();
+
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("no conversation passed");
         }
     }
 
     void TryConversation()
     {
-        if(hasNextDialogue)
+        if (hasNextDialogue)
         {
             NextConversation();
         }
         else
         {
-        anim.SetBool(convoString, false);
-
+            anim.SetBool(convoString, false);
+            OnConversationEnded?.Raise();
             Debug.Log("Conversation Ended! ");
         }
     }
 
     void NextConversation()
     {
-            this.text.text = dialogues[GetNextDialogueIndex()];
-            Conversation(true);
-            StartCoroutine(WaitForClickInput());
-        
-        
+        this.text.text = dialogues[GetNextDialogueIndex()];
+        Conversation(true);
+        StartCoroutine(WaitForClickInput());
+
+
     }
 
     int GetNextDialogueIndex()
