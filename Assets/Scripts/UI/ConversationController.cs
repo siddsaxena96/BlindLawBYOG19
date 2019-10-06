@@ -15,7 +15,7 @@ public class ConversationController : MonoBehaviour, IEventListener
     public string[] Dialogues => dialogues;
     private int dialogueIndex = -1;
     private int dialogueCount => dialogues.Length;
-    private bool hasNextDialogue => dialogueIndex < dialogues.Length - 1;
+    private bool hasNextDialogue => dialogueIndex < dialogues.Length - 2;
     [SerializeField] private Button interactButton = null;
     private Coroutine coroutine = null;
 
@@ -70,7 +70,7 @@ public class ConversationController : MonoBehaviour, IEventListener
             {
                 var text = (string)param as string;
                 text.Trim();
-                dialogues = text.Split(new Char[] { '?', '!', ',', '.', ':', '\t', '\n' });
+                dialogues = text.Split(new Char[] { '?', '!', ',', '.', '\n' });
                 if(dialogueCount > 0)
                 {
                     OnConversationStarted?.Raise();

@@ -23,10 +23,13 @@ public class UIController : MonoBehaviour, IEventListener
 
     void Start()
     {
-        //OnConversationEvent.RegisterListener(this);
-        string s = "Hello! How is it going? My name is Sughosh! ";
+
+    }
+
+    public void NormalConversation(string dialogue)
+    {
         List<object> temp = new List<object>();
-        temp.Add(s);
+        temp.Add(dialogue);
         OnConversationEvent?.Raise(temp);
     }
 
