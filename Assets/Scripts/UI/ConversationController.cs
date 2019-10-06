@@ -69,6 +69,7 @@ public class ConversationController : MonoBehaviour, IEventListener
             foreach (object param in parameters)
             {
                 var text = (string)param as string;
+                text.Trim();
                 dialogues = text.Split(new Char[] { '?', '!', ',', '.', ':', '\t', '\n' });
                 if(dialogueCount > 0)
                 {
