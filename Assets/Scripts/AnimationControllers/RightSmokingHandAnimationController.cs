@@ -9,13 +9,19 @@ public class RightSmokingHandAnimationController : AnimationHandler
 
     public override void OnReceiveEvent(int eventInput)
     {
-        if(eventInput == 0){
-            cigaretteAnimator.SetBool("DragOn",true);
+        if (eventInput == 0)
+        {
+            cigaretteAnimator.SetBool("DragOn", true);
         }
 
-        else{
-            cigaretteAnimator.SetBool("DragOn",false);
+        else if (eventInput == 1)
+        {
+            cigaretteAnimator.SetBool("DragOn", false);
             Debug.Log("Here");
+        }
+        else
+        {
+            animator.SetBool("TakeDrag", false);
         }
     }
 }

@@ -7,6 +7,7 @@ public class PlayerController : PhysicsObject
     public float jumpTakeOffSpeed = 7;
 
     [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private AnimationHandler smokingHand = null;
     [SerializeField] private Animator animator = null;
     [SerializeField] private Rigidbody2D playerRb = null;
 
@@ -23,16 +24,18 @@ public class PlayerController : PhysicsObject
 
         move.x = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown ("Jump") && grounded) {
-            velocity.y = jumpTakeOffSpeed;
-        } 
-        else if (Input.GetButtonUp ("Jump")) 
+        if (Input.GetButtonDown("Jump") && grounded)
         {
-            if (velocity.y > 0) {
+            velocity.y = jumpTakeOffSpeed;
+        }
+        else if (Input.GetButtonUp("Jump"))
+        {
+            if (velocity.y > 0)
+            {
                 velocity.y = velocity.y * 0.5f;
             }
         }
-        
+
         bool flipSprite = (spriteRenderer.flipX ? (move.x >= 0f) : (move.x < 0f));
         if (flipSprite)
         {
@@ -48,5 +51,13 @@ public class PlayerController : PhysicsObject
         else
             animator.SetBool("WalkOn", true);
         playerRb.velocity = targetVelocity;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            smokingHand?.AttemptAnimation("TakeDrag", true);
+        }
     }
 }

@@ -14,12 +14,10 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
     [SerializeField] private Transform chairLeft = null;
     [SerializeField] private Transform chairRight = null;
     [SerializeField] private UIController uiController;
+    [SerializeField] private DialougeAsset[] dialouges = null;
+    private int dialougeNumber = 0;
     private bool dialogueStarted = false;
     [SerializeField] private Core.Events.Event OnConversationEnded = null;
-    private int levelStepIndex = -1;
-    public int levelStepCount = -1;
-
-    private readonly string[] DialogueSequence1 = { "U: The accused", "P: and you answered? " };
 
     private void Start()
     {
@@ -41,12 +39,12 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
         {
             yield return new WaitForSeconds(0.1f);
         }
-       
+
         //yield return new WaitForSeconds(3);
 
 
-        StartDialogueSequence(DialogueSequence1);
-         while(dialogueStarted == true)
+        StartNextDialogueSequence();
+        while (dialogueStarted == true)
             yield return null;
 
 
@@ -64,22 +62,26 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
             yield return new WaitForSeconds(0.1f);
         }
         client1.OnSit();
+        yield return new WaitForSeconds(2);
+        StartNextDialogueSequence();
     }
 
-    private void StartDialogueSequence(string[] dialogueSequence)
+    private void StartNextDialogueSequence()
     {
         dialogueStarted = true;
-        uiController.ArrayConversation(dialogueSequence);
+        uiController.ArrayConversation(dialouges[dialougeNumber].dialouges);
+        dialougeNumber++;
         StartCoroutine(WaitForDialogueToEnd());
     }
 
+
     IEnumerator WaitForDialogueToEnd()
     {
-        while(dialogueStarted == true)
+        while (dialogueStarted == true)
         {
             yield return null;
         }
-      
+
     }
 
     public void OnEventRaised()
@@ -90,5 +92,13 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
     public void OnEventRaisedWithParameters(List<object> parameters)
     {
         throw new NotImplementedException();
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            smokingHand?.AttemptAnimation("TakeDrag", true);
+        }
     }
 }

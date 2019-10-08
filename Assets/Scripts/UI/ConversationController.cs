@@ -64,6 +64,7 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     public void OnEventRaisedWithParameters(List<object> parameters)
     {
+        dialogueIndex = -1;
         if (parameters != null)
         {
 

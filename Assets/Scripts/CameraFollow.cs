@@ -8,13 +8,14 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float clampMinX = 0;
     [SerializeField] private float clampMaxX = 25;
     [SerializeField] private float yLevel = 0;
+    [SerializeField] private float shakeAmount = 0f;
+
     void Update()
     {
         transform.position = new Vector3(Mathf.Clamp(player.position.x, clampMinX, clampMaxX), yLevel, transform.position.z);
         Debug.Log(transform.position);
     }
-    private float shakeAmount = 0f;
-
+    
     public void Shake(float amount, float length)
     {
         shakeAmount = amount;
