@@ -53,11 +53,5 @@ public class PlayerController : PhysicsObject
         playerRb.velocity = targetVelocity;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            smokingHand?.AttemptAnimation("TakeDrag", true);
-        }
-    }
+   
 }
