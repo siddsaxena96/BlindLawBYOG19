@@ -23,6 +23,7 @@ public class CutSceneInstance : MonoBehaviour
         secondCount = 0;
         while (cutSceneCount < cutSceneEvents.cutSceneEvents.Count)
         {
+            Debug.Log(cutSceneCount + " - " + cutSceneEvents.cutSceneEvents.Count);
             if (secondCount == cutSceneEvents.cutSceneEvents[cutSceneCount].onSecond && !cutSceneOn)
             {
                 cutSceneAnimator.enabled = false;
@@ -34,19 +35,20 @@ public class CutSceneInstance : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.1f);
                 }
+                cutSceneCount++;
             }
+            Debug.Log(secondCount);
             secondCount++;
             yield return new WaitForSeconds(1);
         }
         yield return new WaitForSeconds(1);
-        Debug.Log("Enumerator End");
+        Debug.Log("CutScene End");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(cutSceneEvents.cutSceneEvents[cutSceneCount].onKeyPress) && cutSceneOn)
-        {
-            Debug.Log("Lets Go");
+        if (cutSceneOn && Input.GetKeyDown(cutSceneEvents.cutSceneEvents[cutSceneCount].onKeyPress))
+        {            
             cutSceneOn = false;
             cutSceneAnimator.enabled = true;
             cutSceneSpriteRenderer.sprite = null;

@@ -17,3 +17,6 @@ MonoBehaviour:
     showSprite: {fileID: -1223216668860354309, guid: 55a0b0267dab1264caf8dd6a053125a5,
       type: 3}
     onKeyPress: 101
+  - onSecond: 4
+    showSprite: {fileID: 21300000, guid: 9c1a5224985d4ca4ca233c6f4db1a58a, type: 3}
+    onKeyPress: 102

@@ -18,6 +18,7 @@ public class PlayerController : PhysicsObject
         if (playerRb == null)
             playerRb = GetComponent<Rigidbody2D>();
     }
+
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
@@ -53,5 +54,11 @@ public class PlayerController : PhysicsObject
         playerRb.velocity = targetVelocity;
     }
 
-   
+    public void StopPlayer()
+    {
+        playerRb.velocity = Vector2.zero;
+        this.enabled = false;
+    }
+
+
 }

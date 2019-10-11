@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e30116fcde4da4989b06d336748afd, type: 3}
+  m_Name: CutScene2
+  m_EditorClassIdentifier: 
+  cutSceneEvents:
+  - onSecond: 2
+    showSprite: {fileID: -1223216668860354309, guid: 55a0b0267dab1264caf8dd6a053125a5,
+      type: 3}
+    onKeyPress: 101

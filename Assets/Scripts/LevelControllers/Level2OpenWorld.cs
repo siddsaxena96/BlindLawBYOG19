@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level2OpenWorld : MonoBehaviour, ILevelController
 {
-    [SerializeField] private PlayerController player = null;
+    [SerializeField] private PlayerController playerController = null;
     [SerializeField] private CutSceneInstance firstCutscene = null;
 
     public void StartLevel()
@@ -14,7 +14,10 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
 
     public void LoadFirstCutScene()
     {
+        playerController.StopPlayer();
         firstCutscene.PlayCutScene();
     }
+
+
 
 }
