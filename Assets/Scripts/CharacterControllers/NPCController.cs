@@ -22,7 +22,7 @@ public class NPCController : MonoBehaviour
 
     public void OnWalkTo(Transform destination)
     {
-        StartCoroutine(WalkingCoroutine(destination.position));
+        StartCoroutine(WalkingCoroutine(destination.position,"WalkOn"));
     }
 
     public void OnSit()
@@ -35,16 +35,26 @@ public class NPCController : MonoBehaviour
         animationHandler.animator.SetBool("SitOn", false);
     }
 
-    IEnumerator WalkingCoroutine(Vector3 destination)
+    public void OnRunTo(Transform destination)
+    {
+        StartCoroutine(WalkingCoroutine(destination.position,"RunOn"));
+    }
+
+    public void StopRun()
+    {
+        animationHandler.animator.SetBool("RunOn", false);
+    }
+
+    IEnumerator WalkingCoroutine(Vector3 destination,string boolName)
     {
         isWalking = true;
-        animationHandler.animator.SetBool("WalkOn", true);
+        animationHandler.animator.SetBool(boolName, true);
         while (Vector2.Distance(transform.position, destination) > 0.5f)
         {
             transform.position = Vector2.Lerp(transform.position, destination, movementSpeed);
             yield return new WaitForSeconds(0.1f);
         }
         isWalking = false;
-        animationHandler.animator.SetBool("WalkOn", false);
+        animationHandler.animator.SetBool(boolName, false);
     }
 }

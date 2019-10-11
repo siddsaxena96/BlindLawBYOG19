@@ -1,23 +1,97 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Core.Events;
 using UnityEngine;
 
 public class Level2OpenWorld : MonoBehaviour, ILevelController
 {
     [SerializeField] private PlayerController playerController = null;
     [SerializeField] private CutSceneInstance firstCutscene = null;
+    [SerializeField] private NPCController[] npcRunners = null;
+    [SerializeField] private Transform[] runPoints = null;
+    [SerializeField] private NPCController shopKeeper = null;
+    [SerializeField] private UIController uiController = null;
+    [SerializeField] private DialougeAsset firstBadGuyConversation = null;
+    [SerializeField] private DialougeAsset secondBadGuyConversation = null;
+    [SerializeField] private GameObject gunInHand = null;
+
+
+    private bool dialougeStarted = false;
+    private bool fading = false;
+    private bool cutSceneOn = false;
 
     public void StartLevel()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(LevelCoroutine());
     }
 
-    public void LoadFirstCutScene()
+    IEnumerator LevelCoroutine()
     {
         playerController.StopPlayer();
+        uiController.StartConversation(firstBadGuyConversation.dialouges);
+        dialougeStarted = true;
+        while (dialougeStarted)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Debug.Log("Here");
+        }
+        gunInHand.SetActive(true);
+        int runPointIndex = 0;
+        foreach (NPCController runner in npcRunners)
+        {
+            runner.OnRunTo(runPoints[runPointIndex]);
+            runPointIndex = (runPointIndex + 1) % npcRunners.Length;
+        }
+        shopKeeper?.OnSit();
+        yield return new WaitForSeconds(3);
+        uiController.StartConversation(secondBadGuyConversation.dialouges);
+        dialougeStarted = true;
+        while (dialougeStarted)
+        {
+            yield return new WaitForSeconds(0.1f);
+
+        }
+        uiController.FadeToBlack();
+        fading = true;
+        while (fading)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        uiController.ToggleFadePanel(false);
         firstCutscene.PlayCutScene();
+        cutSceneOn = true;
+        while (cutSceneOn)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        uiController.ToggleFadePanel(true);
+        uiController.FadeFromBlack();
+        fading=true;
+        while (fading)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        Debug.Log("Enum khatam");
+        yield return null;
     }
 
+    public void OnDialougeOver()
+    {
+        dialougeStarted = false;
+    }
 
+    public void OnFadeOver()
+    {
+        fading = false;
+    }
 
+    public void OnCutSceneOver()
+    {
+
+    }
+
+    public void OnEventRaisedWithParameters(List<object> parameters)
+    {
+        throw new System.NotImplementedException();
+    }
 }

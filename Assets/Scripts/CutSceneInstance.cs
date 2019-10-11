@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.Events;
 
 public class CutSceneInstance : MonoBehaviour
 {
     [SerializeField] private Animator cutSceneAnimator = null;
     [SerializeField] private CutSceneEventData cutSceneEvents = null;
     [SerializeField] private SpriteRenderer cutSceneSpriteRenderer = null;
+    [SerializeField] private Core.Events.Event onCutSceneOver = null;
 
     private int secondCount = 0;
     private int cutSceneCount = 0;
@@ -23,26 +25,21 @@ public class CutSceneInstance : MonoBehaviour
         secondCount = 0;
         while (cutSceneCount < cutSceneEvents.cutSceneEvents.Count)
         {
-            Debug.Log(cutSceneCount + " - " + cutSceneEvents.cutSceneEvents.Count);
             if (secondCount == cutSceneEvents.cutSceneEvents[cutSceneCount].onSecond && !cutSceneOn)
             {
                 cutSceneAnimator.enabled = false;
                 cutSceneSpriteRenderer.sprite = cutSceneEvents.cutSceneEvents[cutSceneCount].showSprite;
                 cutSceneOn = true;
-                Debug.Log(secondCount);
-                Debug.Log("Pause");
                 while (cutSceneOn)
                 {
                     yield return new WaitForSeconds(0.1f);
                 }
                 cutSceneCount++;
             }
-            Debug.Log(secondCount);
             secondCount++;
             yield return new WaitForSeconds(1);
         }
-        yield return new WaitForSeconds(1);
-        Debug.Log("CutScene End");
+        yield return new WaitForSeconds(1);        
     }
 
     private void Update()
@@ -57,8 +54,8 @@ public class CutSceneInstance : MonoBehaviour
 
     public void OnEndCutScene()
     {
-        cutSceneOn = false;
-        //StopCoroutine(PlayCutSceneCoroutine());
+        cutSceneOn = false;        
+        onCutSceneOver?.Raise();
         cutSceneAnimator.gameObject.SetActive(false);
     }
 

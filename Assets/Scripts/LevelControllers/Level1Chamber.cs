@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Events;
+using UnityEngine.SceneManagement;
 
-public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
+public class Level1Chamber : MonoBehaviour, ILevelController
 {
     [SerializeField] private AnimationHandler smokingHand = null;
     [SerializeField] private NPCController underStudyController = null;
@@ -15,14 +16,14 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
     [SerializeField] private Transform chairRight = null;
     [SerializeField] private UIController uiController;
     [SerializeField] private DialougeAsset[] dialouges = null;
+
     private int dialougeNumber = 0;
     private bool dialogueStarted = false;
-    [SerializeField] private Core.Events.Event OnConversationEnded = null;
+    private bool fading = false;
 
     private void Start()
     {
         StartLevel();
-        OnConversationEnded?.RegisterListener(this);
     }
 
     public void StartLevel()
@@ -64,12 +65,23 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
         client1.OnSit();
         yield return new WaitForSeconds(2);
         StartNextDialogueSequence();
+        while (dialogueStarted)
+        {
+            yield return null;
+        }
+        uiController.FadeToBlack();
+        fading = true;
+        while (fading)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("SceneTwoDarkStreet");
     }
 
     private void StartNextDialogueSequence()
     {
         dialogueStarted = true;
-        uiController.ArrayConversation(dialouges[dialougeNumber].dialouges);
+        uiController.StartConversation(dialouges[dialougeNumber].dialouges);
         dialougeNumber++;
         StartCoroutine(WaitForDialogueToEnd());
     }
@@ -83,17 +95,17 @@ public class Level1Chamber : MonoBehaviour, ILevelController, IEventListener
         }
 
     }
-
-    public void OnEventRaised()
+    public void OnDialougeOver()
     {
         dialogueStarted = false;
     }
 
-    public void OnEventRaisedWithParameters(List<object> parameters)
+    public void OnFadeOver()
     {
-        throw new NotImplementedException();
+        fading = false;
     }
-    
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))

@@ -57,6 +57,7 @@ public class PlayerController : PhysicsObject
     public void StopPlayer()
     {
         playerRb.velocity = Vector2.zero;
+        animator.SetBool("WalkOn", false);
         this.enabled = false;
     }
 
