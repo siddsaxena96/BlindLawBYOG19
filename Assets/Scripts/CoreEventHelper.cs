@@ -8,7 +8,6 @@ public class CoreEventHelper : MonoBehaviour, IEventListener
     [SerializeField] private Core.Events.Event eventToRaise = null;
     [SerializeField] private UnityEngine.Events.UnityEvent onEventRaise = new UnityEngine.Events.UnityEvent();
 
-
     private void Awake()
     {
         eventToRaise.RegisterListener(this);
@@ -27,5 +26,5 @@ public class CoreEventHelper : MonoBehaviour, IEventListener
     private void OnDestroy()
     {
         eventToRaise.UnregisterListener(this);
-    }
+    }   
 }
