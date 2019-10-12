@@ -56,6 +56,7 @@ public class CutSceneInstance : MonoBehaviour
     {
         cutSceneOn = false;        
         onCutSceneOver?.Raise();
+        Debug.Log("CutScene Over");
         cutSceneAnimator.gameObject.SetActive(false);
     }
 

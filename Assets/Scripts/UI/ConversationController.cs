@@ -35,6 +35,11 @@ public class ConversationController : MonoBehaviour, IEventListener
         OnConversationEvent?.RegisterListener(this);
     }
 
+    private void OnDestroy() 
+    {
+        OnConversationEvent?.UnregisterListener(this);
+    }
+
     public void NormalConversation(string s)
     {
         text.text = s;

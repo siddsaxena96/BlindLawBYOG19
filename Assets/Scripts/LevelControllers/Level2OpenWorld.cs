@@ -13,7 +13,10 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
     [SerializeField] private UIController uiController = null;
     [SerializeField] private DialougeAsset firstBadGuyConversation = null;
     [SerializeField] private DialougeAsset secondBadGuyConversation = null;
+    [SerializeField] private DialougeAsset thirdBadGuyConversation = null;
     [SerializeField] private GameObject gunInHand = null;
+    [SerializeField] private GameObject[] objectsToTurnOff = null;
+    [SerializeField] private GameObject afterCutscene = null;
 
 
     private bool dialougeStarted = false;
@@ -33,7 +36,6 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         while (dialougeStarted)
         {
             yield return new WaitForSeconds(0.1f);
-            Debug.Log("Here");
         }
         gunInHand.SetActive(true);
         int runPointIndex = 0;
@@ -62,11 +64,29 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         cutSceneOn = true;
         while (cutSceneOn)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.1f);            
         }
         uiController.ToggleFadePanel(true);
+        foreach (var item in objectsToTurnOff)
+        {
+            item.SetActive(false);
+        }
+        afterCutscene.SetActive(true);
         uiController.FadeFromBlack();
-        fading=true;
+        fading = true;
+        while (fading)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        uiController.StartConversation(thirdBadGuyConversation.dialouges);
+        dialougeStarted = true;
+        while (dialougeStarted)
+        {
+            yield return new WaitForSeconds(0.1f);
+
+        }
+        uiController.FadeToBlack();
+        fading = true;
         while (fading)
         {
             yield return new WaitForSeconds(0.1f);
@@ -87,7 +107,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
 
     public void OnCutSceneOver()
     {
-
+        cutSceneOn = false;
     }
 
     public void OnEventRaisedWithParameters(List<object> parameters)

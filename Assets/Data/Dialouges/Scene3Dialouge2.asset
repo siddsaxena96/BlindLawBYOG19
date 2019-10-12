@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d7d3a3b37e5fb45bef50bcce2d9265, type: 3}
+  m_Name: Scene3Dialouge2
+  m_EditorClassIdentifier: 
+  dialouges:
+  - 'C : I hope you''re ready for court tomorrow ?'
+  - 'P : I have an offer I would like you to consider'
+  - 'C : ...'
+  - 'P : 25 Lakhs..... that money could get you a house, maybe some land. Care for
+    those you have'
+  - 'C : Did they get to you ?'
+  - 'P : Nobody gets to me'
+  - 'C : My son''s life isn''t worth all the money in the world...'
+  - 'P : They put a gun to my head'
+  - 'C : And a tire to my son''s face ! Whats new ?....  I can only beg at this point.
+    My son deserves justice'

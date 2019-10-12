@@ -104,13 +104,4 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     {
         fading = false;
     }
-
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            smokingHand?.AttemptAnimation("TakeDrag", true);
-        }
-    }
 }

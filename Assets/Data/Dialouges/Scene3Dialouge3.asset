@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e30116fcde4da4989b06d336748afd, type: 3}
-  m_Name: DialougeData
+  m_Script: {fileID: 11500000, guid: f6d7d3a3b37e5fb45bef50bcce2d9265, type: 3}
+  m_Name: Scene3Dialouge3
   m_EditorClassIdentifier: 
-  cutSceneEvents: []
+  dialouges:
+  - 'U : So now you take bloodmoney, huh ?'
+  - 'P : What !?!?'
+  - 'U : Nothing, you should rest. You have court tomorrow.'
