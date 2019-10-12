@@ -57,7 +57,8 @@ public class Level3Chamber : MonoBehaviour, ILevelController
         while (dialougeOn)
             yield return null;
         client1.OnStand();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        client1.FlipSpriteX();
         client1.OnWalkTo(spawnPoint);
         while (client1.isWalking)
             yield return null;

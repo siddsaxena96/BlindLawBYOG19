@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Core.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Level2OpenWorld : MonoBehaviour, ILevelController
@@ -91,6 +91,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         {
             yield return new WaitForSeconds(0.1f);
         }
+        SceneManager.LoadScene("Scene3Chamber");
         Debug.Log("Enum khatam");
         yield return null;
     }

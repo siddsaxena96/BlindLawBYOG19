@@ -23,4 +23,9 @@ public class CoreEventHelper : MonoBehaviour, IEventListener
     {
         throw new System.NotImplementedException();
     }
+
+    private void OnDestroy()
+    {
+        eventToRaise.UnregisterListener(this);
+    }
 }

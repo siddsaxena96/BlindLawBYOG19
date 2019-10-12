@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneTwoDarkStreet.unity
     guid: 58a273e7944420643b868551d7c19a26
+  - enabled: 1
+    path: Assets/Scenes/SceneThreeChamber.unity
+    guid: b03717f692776c74d8e18f85f75cbcae
   m_configObjects: {}
