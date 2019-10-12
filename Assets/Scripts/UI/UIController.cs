@@ -97,13 +97,15 @@ public class UIController : MonoBehaviour
             highlightPanel.color = c;
             yield return new WaitForSeconds(.1f);
         }
-        
-        pointer.position = new Vector2(toHighlight.transform.position.x,toHighlight.transform.position.y) +pointerOffset;
+
+        pointer.position = new Vector2(toHighlight.transform.position.x, toHighlight.transform.position.y) + pointerOffset;
         pointer.SetAsLastSibling();
         pointer.gameObject.SetActive(true);
         objectHighlighted = true;
+
         while (objectHighlighted)
             yield return null;
+
         foreach (SpriteRenderer item in toHighlight.GetComponentsInChildren<SpriteRenderer>())
         {
             item.sortingOrder = oldOrder;
@@ -118,6 +120,7 @@ public class UIController : MonoBehaviour
             highlightPanel.color = c;
             yield return new WaitForSeconds(.1f);
         }
+        Debug.Log("Raising Highlight Complete");
         highlightComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }

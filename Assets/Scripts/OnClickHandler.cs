@@ -12,5 +12,4 @@ public class OnClickHandler : MonoBehaviour
         Debug.Log("Clicked");
         onObjectClicked?.Invoke();
     }
-
 }
