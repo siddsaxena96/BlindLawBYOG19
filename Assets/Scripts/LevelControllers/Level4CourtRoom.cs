@@ -64,9 +64,9 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         while (wordGameOn)
             yield return null;
         wordGameController.TurnOffGame();
-        uIController.Sherlock(phrases);
-        uIController.ObjectionEvent(30, 60, 2);
-        yield return new WaitForSeconds(2);
+       // uIController.Sherlock(phrases);
+       // uIController.ObjectionEvent(30, 60, 2);
+       // yield return new WaitForSeconds(2);
         underStudyController.OnWalkTo(courtStandingPoint);
         while (underStudyController.isWalking)
             yield return null;

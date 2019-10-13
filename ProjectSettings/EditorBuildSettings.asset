@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 182e72d1883a1f64296f962d5021d060
   - enabled: 1
     path: Assets/Scenes/SceneOneChamber.unity
     guid: aa57173ff1dc21440b881333eb32af66
@@ -26,16 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CHOOSEFINALSCENE.unity
     guid: 58d7b82fa08fa0248afc9337c81497cc
-  - enabled: 0
-    path: Assets/Scenes/CourtElementsTest.unity
-    guid: 59a076a49414f57479ff70fd6a8c8431
   - enabled: 1
     path: Assets/Scenes/Scene7CourtRoom.unity
     guid: a8903eed8e9932a44b5f9c5e51606df7
   - enabled: 1
     path: Assets/Scenes/Scene8Chamber.unity
     guid: efaa31050f651be45b4da9e540a18ae3
-  - enabled: 0
-    path: Assets/Scenes/Text.unity
-    guid: 55a1a1aee9952d544ad44b98e58e6f76
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: aaf6f794c00f0db4aab64e413f7cf94e
   m_configObjects: {}

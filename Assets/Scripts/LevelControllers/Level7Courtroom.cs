@@ -83,7 +83,7 @@ public class Level7Courtroom : MonoBehaviour, ILevelController
         fading = true;
         while (fading)
             yield return null;
-        //SceneManager.LoadScene("Scene6Street");
+        SceneManager.LoadScene("End");
 
         Debug.Log("Done");
         yield return null;
