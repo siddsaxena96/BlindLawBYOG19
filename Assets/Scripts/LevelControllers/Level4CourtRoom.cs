@@ -6,6 +6,8 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
 {
     [SerializeField] private PlayerController playerController = null;
     [SerializeField] private NPCController underStudyController = null;
+    [SerializeField] private GameObject client = null;
+    [SerializeField] private GameObject accused = null;
     [SerializeField] private DialougeSequence witnessDeadDialouge = null;
     [SerializeField] private Transform courtStandingPoint = null;
     [SerializeField] private UIController uIController = null;
@@ -26,7 +28,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     IEnumerator LevelCoroutine()
     {
         yield return new WaitForSeconds(2);
-        uIController.HighlighObject(file);
+        uIController.HighlighObject(file,"WHERE IS YOUR FILE ?");
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
@@ -34,6 +36,16 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         underStudyController.OnWalkTo(courtStandingPoint);
         while (underStudyController.isWalking)
             yield return null;
+        uIController.HighlighObject(client,"WHERE IS YOUR CLIENT ?");
+        highlightEvent = true;
+        while (highlightEvent)
+            yield return null;
+        uIController.HighlighObject(accused,"WHERE IS THE DEFENDANT ?");
+        highlightEvent = true;
+        while (highlightEvent)
+            yield return null;
+        
+        
         //uIController.StartConversation(witnessDeadDialouge.dialouges);        
         
         Debug.Log("Done");
