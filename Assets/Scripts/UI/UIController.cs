@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
         OnObjectionRaised.Raise(o);
     }
 
-    public void Sherlock(string[] s, float alphaLag, float sentLag)
+    public void OldSherlock(string[] s, float alphaLag, float sentLag)
     {
         object a = CourtEvent.CourtEvents.Sherlock;
         object b = s;
@@ -57,6 +57,14 @@ public class UIController : MonoBehaviour
         o.Add(d);
         OnSherlock.Raise(o);
 
+    }
+
+    public void Sherlock(string[] text)
+    {
+        object o = text;
+        List<object> ob = new List<object>();
+        ob.Add(o);
+        OnSherlock?.Raise(ob);
     }
 
     public void NormalConversation(string dialogue)

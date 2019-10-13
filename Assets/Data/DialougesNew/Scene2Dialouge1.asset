@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad7983d4f9084469d8dc435c6d351d, type: 3}
+  m_Name: Scene2Dialouge1
+  m_EditorClassIdentifier: 
+  dialouges:
+  - dialouge: 'Mr Hat : Hold on There ! '
+    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+  - dialouge: 'Hyde: Who are you ?'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+  - dialouge: 'Mr Hat : I am Mr.Hat, I put a lid on problems '
+    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+  - dialouge: 'Mr Hat : Now, you see the case you''ve taken.... JJ is a good boy and
+      that dead kid ? good for nothing slum scrap'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+  - dialouge: 'Hyde: I am not discussing my case with you... goodbye'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+  - dialouge: 'Mr Hat : Perharps this can persuade you... '
+    dialougeColor: {r: 0.4008431, g: 0.7735849, b: 0.22988607, a: 0}

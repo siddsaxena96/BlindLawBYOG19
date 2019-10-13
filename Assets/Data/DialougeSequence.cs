@@ -7,7 +7,7 @@ using System;
 public class Dialouge
 {
     [SerializeField] public string dialouge = null;
-    [SerializeField] public Color dialougeColor = Color.black;
+    [SerializeField] public Color dialougeColor = Color.white;
 
     Dialouge()
     {

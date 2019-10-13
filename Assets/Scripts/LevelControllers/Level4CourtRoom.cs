@@ -21,6 +21,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     [Header("Dialouges")]
     [SerializeField] private DialougeSequence firstDialouge = null;
     [SerializeField] private DialougeSequence witnessDeadDialouge = null;
+    private readonly string[] phrases = { "FATHER", "GUN", "COURAGE?", "FEAR?", "SCREWED", "FATHER", "GUN", "COURAGE?", "FEAR?", "SCREWED" };
 
 
     private bool highlightEvent = false;
@@ -39,36 +40,37 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
 
     IEnumerator LevelCoroutine()
     {
-        yield return new WaitForSeconds(2);
-        uIController.StartConversationWithColor(firstDialouge.dialouges);
-        dialougeOn = true;
-        while (dialougeOn)
-            yield return null;
-        uIController.HighlighObject(file, "WHERE IS YOUR FILE ?");
-        highlightEvent = true;
-        while (highlightEvent)
-            yield return null;
-        uIController.HighlighObject(client, "WHERE IS YOUR CLIENT ?");
-        highlightEvent = true;
-        while (highlightEvent)
-            yield return null;
-        uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
-        highlightEvent = true;
-        while (highlightEvent)
-            yield return null;
-        wordGameController.PlayWordGame(wordGameData1);
-        wordGameOn = true;
-        while (wordGameOn)
-            yield return null;
-        wordGameController.TurnOffGame();
-        underStudyController.OnWalkTo(courtStandingPoint);
-        while (underStudyController.isWalking)
-            yield return null;
-        uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        dialougeOn = true;
-        while(dialougeOn)
-            yield return null;
-
+         yield return new WaitForSeconds(2);
+        // uIController.StartConversationWithColor(firstDialouge.dialouges);
+        // dialougeOn = true;
+        // while (dialougeOn)
+        //     yield return null;
+        // uIController.HighlighObject(file, "WHERE IS YOUR FILE ?");
+        // highlightEvent = true;
+        // while (highlightEvent)
+        //     yield return null;
+        // uIController.HighlighObject(client, "WHERE IS YOUR CLIENT ?");
+        // highlightEvent = true;
+        // while (highlightEvent)
+        //     yield return null;
+        // uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
+        // highlightEvent = true;
+        // while (highlightEvent)
+        //     yield return null;
+        // wordGameController.PlayWordGame(wordGameData1);
+        // wordGameOn = true;
+        // while (wordGameOn)
+        //     yield return null;
+        // wordGameController.TurnOffGame();
+        // underStudyController.OnWalkTo(courtStandingPoint);
+        // while (underStudyController.isWalking)
+        //     yield return null;
+        // uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
+        // dialougeOn = true;
+        // while(dialougeOn)
+        //     yield return null;
+       
+        uIController.Sherlock(phrases);
         //uIController.StartConversation(witnessDeadDialouge.dialouges);        
 
         Debug.Log("Done");
