@@ -162,7 +162,8 @@ MonoBehaviour:
   file: {fileID: 1207374393}
   wordGameData1: {fileID: 11400000, guid: 6426778645d7c0d499d69e69b200eee0, type: 2}
   firstDialouge: {fileID: 11400000, guid: 3943059934653a34696264b756ce1a1a, type: 2}
-  witnessDeadDialouge: {fileID: 0}
+  witnessDeadDialouge: {fileID: 11400000, guid: 22666d3a8f2326d47b4df04f73704fb6,
+    type: 2}
 --- !u!4 &177378256
 Transform:
   m_ObjectHideFlags: 0
