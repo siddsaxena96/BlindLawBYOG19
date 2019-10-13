@@ -24,6 +24,41 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text guidanceText = null;
     private bool objectHighlighted = false;
 
+
+    [Header("CourtEvents")]
+    [SerializeField] private CourtEvent courtEvent = null;
+    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised, OnSherlock;
+
+    public void ObjectionEvent(int min, int max, float t)
+    {
+        List<object> o = new List<object>();
+        object a = CourtEvent.CourtEvents.Objection;
+        object b = (int)min;
+        object c = (int)max;
+        object timer = t;
+        o.Clear();
+        o.Add(a);
+        o.Add(b);
+        o.Add(c);
+        o.Add(timer);
+        OnObjectionRaised.Raise(o);
+    }
+
+    public void Sherlock(string[] s, float alphaLag, float sentLag)
+    {
+        object a = CourtEvent.CourtEvents.Sherlock;
+        object b = s;
+        object c = alphaLag;
+        object d = sentLag;
+        List<object> o = new List<object>();
+        o.Add(a);
+        o.Add(b);
+        o.Add(c);
+        o.Add(d);
+        OnSherlock.Raise(o);
+
+    }
+
     public void NormalConversation(string dialogue)
     {
         List<object> temp = new List<object>();
