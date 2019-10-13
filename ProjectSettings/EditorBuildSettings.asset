@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene5CourtRoom.unity
     guid: bf4db9f4a420b184dab9fedb8ca08d68
+  - enabled: 1
+    path: Assets/Scenes/Scene6Street.unity
+    guid: 70fb3f103757c2048a4f23093f3e8731
   m_configObjects: {}

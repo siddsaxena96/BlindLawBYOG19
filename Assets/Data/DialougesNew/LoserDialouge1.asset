@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad7983d4f9084469d8dc435c6d351d, type: 3}
+  m_Name: LoserDialouge1
+  m_EditorClassIdentifier: 
+  dialouges:
+  - dialouge: 'Syl : They killed his mother, your client....'
+    dialougeColor: {r: 1, g: 0, b: 0, a: 1}
+  - dialouge: 'Hyde : I did not know that...'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
+  - dialouge: 'Syl : You could have won..... could have gotten her justice. Instead
+      she''s dead in some in some ditch'
+    dialougeColor: {r: 1, g: 0, b: 0, a: 1}
+  - dialouge: 'Hyde : How do you know ?'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}

@@ -14,8 +14,7 @@ public class WordGameController : MonoBehaviour
     [SerializeField] private Color wrongColor = Color.red;
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Core.Events.Event onGameComplete = null;
-
-
+    [SerializeField] public bool allWin = false;
     private int currentAnswerIndex = 0;
     private bool awaitingInput = false;
 
@@ -59,15 +58,25 @@ public class WordGameController : MonoBehaviour
 
     public void ProcessAnswer(int answer)
     {
-
-        for (int i = 0; i < buttonList.Length; i++)
+        if (allWin)
         {
-            if (i == currentAnswerIndex)
+            for (int i = 0; i < buttonList.Length; i++)
+            {
                 buttonList[i].GetComponent<Image>().color = rightColor;
-            else
-                buttonList[i].GetComponent<Image>().color = wrongColor;
-            buttonList[i].interactable = false;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < buttonList.Length; i++)
+            {
+                if (i == currentAnswerIndex)
+                    buttonList[i].GetComponent<Image>().color = rightColor;
+                else
+                    buttonList[i].GetComponent<Image>().color = wrongColor;
+                buttonList[i].interactable = false;
+            }            
         }
         awaitingInput = false;
     }
+
 }
