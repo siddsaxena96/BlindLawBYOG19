@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level4CourtRoom : MonoBehaviour, ILevelController
 {
@@ -27,6 +28,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     private bool highlightEvent = false;
     private bool dialougeOn = false;
     private bool wordGameOn = false;
+    private bool fading = false;
 
     private void Awake()
     {
@@ -41,37 +43,42 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     IEnumerator LevelCoroutine()
     {
          yield return new WaitForSeconds(2);
-        // uIController.StartConversationWithColor(firstDialouge.dialouges);
-        // dialougeOn = true;
-        // while (dialougeOn)
-        //     yield return null;
-        // uIController.HighlighObject(file, "WHERE IS YOUR FILE ?");
-        // highlightEvent = true;
-        // while (highlightEvent)
-        //     yield return null;
-        // uIController.HighlighObject(client, "WHERE IS YOUR CLIENT ?");
-        // highlightEvent = true;
-        // while (highlightEvent)
-        //     yield return null;
-        // uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
-        // highlightEvent = true;
-        // while (highlightEvent)
-        //     yield return null;
-        // wordGameController.PlayWordGame(wordGameData1);
-        // wordGameOn = true;
-        // while (wordGameOn)
-        //     yield return null;
-        // wordGameController.TurnOffGame();
-        // underStudyController.OnWalkTo(courtStandingPoint);
-        // while (underStudyController.isWalking)
-        //     yield return null;
-        // uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        // dialougeOn = true;
-        // while(dialougeOn)
-        //     yield return null;
+        uIController.StartConversationWithColor(firstDialouge.dialouges);
+        dialougeOn = true;
+        while (dialougeOn)
+            yield return null;
+        uIController.HighlighObject(file, "WHERE IS YOUR FILE ?");
+        highlightEvent = true;
+        while (highlightEvent)
+            yield return null;
+        uIController.HighlighObject(client, "WHERE IS YOUR CLIENT ?");
+        highlightEvent = true;
+        while (highlightEvent)
+            yield return null;
+        uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
+        highlightEvent = true;
+        while (highlightEvent)
+            yield return null;
+        wordGameController.PlayWordGame(wordGameData1);
+        wordGameOn = true;
+        while (wordGameOn)
+            yield return null;
+        wordGameController.TurnOffGame();
+        underStudyController.OnWalkTo(courtStandingPoint);
+        while (underStudyController.isWalking)
+            yield return null;
+        uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
+        dialougeOn = true;
+        while(dialougeOn)
+            yield return null;
        
         uIController.Sherlock(phrases);
-        //uIController.StartConversation(witnessDeadDialouge.dialouges);        
+        uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
+        uIController.FadeToBlack();
+        fading = true;
+        while(fading)
+            yield return null;
+        SceneManager.LoadScene("Scene6Street");
 
         Debug.Log("Done");
         yield return null;
@@ -90,5 +97,9 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     public void OnDialougeOver()
     {
         dialougeOn = false;
+    }
+
+    public void OnFadeOver(){
+        fading = false;
     }
 }
