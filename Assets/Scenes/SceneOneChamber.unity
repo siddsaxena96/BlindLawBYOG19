@@ -2704,6 +2704,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2554564072129984196, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_Name
+      value: ConversationEngineNew
+      objectReference: {fileID: 0}
     - target: {fileID: 2554564072129984202, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_VerticalFit
@@ -2734,6 +2739,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5593207172076796533, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916692941654759519, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916692941654759519, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916692941654759519, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
