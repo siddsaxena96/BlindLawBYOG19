@@ -10,8 +10,9 @@ public class WordGameController : MonoBehaviour
     [SerializeField] private Text gameText = null;
     [SerializeField] private Button[] buttonList = null;
     [SerializeField] private DataRowPopulator buttonRow = null;
-    [SerializeField] private Color rightColor = Color.red;
-    [SerializeField] private Color wrongColor = Color.green;
+    [SerializeField] private Color rightColor = Color.green;
+    [SerializeField] private Color wrongColor = Color.red;
+    [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Core.Events.Event onGameComplete = null;
 
 
@@ -23,8 +24,7 @@ public class WordGameController : MonoBehaviour
     {
         for (int i = 0; i < buttonList.Length; i++)
         {
-            buttonList[i].interactable = false;
-            buttonList[i].onClick.AddListener(delegate { ProcessAnswer(i); });
+            buttonList[i].interactable = false;                        
         }
         StartCoroutine(WordGameCoroutine(wordGameData));        
     }
@@ -37,6 +37,7 @@ public class WordGameController : MonoBehaviour
             buttonRow.SetRow(buttonRowString);
             for (int j = 0; j < buttonList.Length; j++)
             {
+                buttonList[j].GetComponent<Image>().color = normalColor;
                 buttonList[j].interactable = true;
             }
             mainPanel.SetActive(true);
@@ -44,6 +45,8 @@ public class WordGameController : MonoBehaviour
             awaitingInput = true;
             while (awaitingInput)
                 yield return null;
+            yield return new WaitForSeconds(2);
+
         }
         onGameComplete?.Raise();
         yield return null;
@@ -51,6 +54,7 @@ public class WordGameController : MonoBehaviour
 
     public void ProcessAnswer(int answer)
     {
+        
         for (int i = 0; i < buttonList.Length; i++)
         {
             if (i == answer)
