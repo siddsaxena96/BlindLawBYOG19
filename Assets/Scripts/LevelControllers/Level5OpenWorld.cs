@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level5OpenWorld : MonoBehaviour, ILevelController
 {
@@ -65,6 +66,7 @@ public class Level5OpenWorld : MonoBehaviour, ILevelController
         fading =true;
         while (fading)
             yield return null;
+        SceneManager.LoadScene("CHOOSEFINALSCENE");
         Debug.Log("GG");
 
         yield return null;
