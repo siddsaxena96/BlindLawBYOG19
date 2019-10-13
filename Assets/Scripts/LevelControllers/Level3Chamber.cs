@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level3Chamber : MonoBehaviour, ILevelController
 {
@@ -68,7 +69,10 @@ public class Level3Chamber : MonoBehaviour, ILevelController
             yield return null;
         yield return new WaitForSeconds(1);
         uiController.FadeToBlack();
-        yield return null;
+        fading=true;
+        while (fading)
+            yield return null;
+        SceneManager.LoadScene("Scene5CourtRoom");  
     }
 
     public void OnDialougeOver()
