@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 177378256}
   - component: {fileID: 177378255}
   - component: {fileID: 177378257}
+  - component: {fileID: 177378258}
+  - component: {fileID: 177378259}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -155,11 +157,12 @@ MonoBehaviour:
   wordGameController: {fileID: 1624589750}
   client: {fileID: 1667781696}
   accused: {fileID: 456218588}
-  witnessDeadDialouge: {fileID: 0}
   courtStandingPoint: {fileID: 1521005531}
   uIController: {fileID: 1624589744}
   file: {fileID: 1207374393}
   wordGameData1: {fileID: 11400000, guid: 6426778645d7c0d499d69e69b200eee0, type: 2}
+  firstDialouge: {fileID: 11400000, guid: 3943059934653a34696264b756ce1a1a, type: 2}
+  witnessDeadDialouge: {fileID: 0}
 --- !u!4 &177378256
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +195,64 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 177378255}
         m_MethodName: OnHighlightOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &177378258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177378254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ebc7b4573b7614694355350aec318f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToRaise: {fileID: 11400000, guid: 2a63a8d8be6b1f44c86d71e057378c3b, type: 2}
+  onEventRaise:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177378255}
+        m_MethodName: OnDialougeOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &177378259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177378254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ebc7b4573b7614694355350aec318f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventToRaise: {fileID: 11400000, guid: 4dde9b7b528a12c46b611a07fe5e6318, type: 2}
+  onEventRaise:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177378255}
+        m_MethodName: OnWordGameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

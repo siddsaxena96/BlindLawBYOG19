@@ -10,14 +10,14 @@ public class UIController : MonoBehaviour
     [Header("Conversation System")]
     public ConversationController conversationController;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
-    
+
     [Header("Fade Panel")]
     [SerializeField] private Image fadePanel = null;
     [SerializeField] private Core.Events.Event fadeComplete = null;
 
     [Header("Highlight Panel")]
     [SerializeField] private GameObject guidanceSystem = null;
-    [SerializeField] private Image highlightPanel = null;    
+    [SerializeField] private Image highlightPanel = null;
     [SerializeField] private Core.Events.Event highlightComplete = null;
     [SerializeField] private RectTransform pointer = null;
     [SerializeField] private Vector2 pointerOffset = Vector2.zero;
@@ -84,9 +84,9 @@ public class UIController : MonoBehaviour
         StartCoroutine(FadePanel(1));
     }
 
-    public void HighlighObject(GameObject objectToHighlight,string guidanceString)
+    public void HighlighObject(GameObject objectToHighlight, string guidanceString)
     {
-        StartCoroutine(HighlighPanel(objectToHighlight,guidanceString));
+        StartCoroutine(HighlighPanel(objectToHighlight, guidanceString));
     }
 
     public void ToggleFadePanel(bool status)
@@ -121,8 +121,8 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
     }
 
-    IEnumerator HighlighPanel(GameObject toHighlight,string guidanceString)
-    {        
+    IEnumerator HighlighPanel(GameObject toHighlight, string guidanceString)
+    {
         int oldOrder = toHighlight.GetComponentInChildren<SpriteRenderer>().sortingOrder;
         Transform currentParent = toHighlight.transform.parent;
         toHighlight.transform.SetParent(transform);
@@ -167,6 +167,12 @@ public class UIController : MonoBehaviour
         highlightComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }
+
+    public void StartConversationWithColor(Dialouge[] dialouges)
+    {
+        conversationController.ConversationWithColor(dialouges);
+    }
+
 
     public void OnItemClicked()
     {

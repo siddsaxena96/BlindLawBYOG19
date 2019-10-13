@@ -19,5 +19,5 @@ public class Dialouge
 [CreateAssetMenu(fileName = "DialougeData", menuName = "Data/DialougeSequence")]
 public class DialougeSequence : ScriptableObject
 {
-    [SerializeField] public List<Dialouge> dialouges = new List<Dialouge>();
+    [SerializeField] public Dialouge[] dialouges = null;
 }
