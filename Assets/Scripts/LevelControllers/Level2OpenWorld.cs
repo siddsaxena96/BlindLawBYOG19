@@ -17,6 +17,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
     [SerializeField] private GameObject gunInHand = null;
     [SerializeField] private GameObject[] objectsToTurnOff = null;
     [SerializeField] private GameObject afterCutscene = null;
+    [SerializeField] private GameObject arrow = null;
 
 
     private bool dialougeStarted = false;
@@ -30,6 +31,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
 
     IEnumerator LevelCoroutine()
     {
+        arrow.SetActive(false);
         playerController.StopPlayer();
         uiController.StartConversationWithColor(firstBadGuyConversation.dialouges);
         dialougeStarted = true;

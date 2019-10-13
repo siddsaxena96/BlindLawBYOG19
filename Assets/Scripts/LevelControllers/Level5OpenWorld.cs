@@ -15,6 +15,7 @@ public class Level5OpenWorld : MonoBehaviour, ILevelController
     [SerializeField] private DialougeSequence secondBadGuyConversation = null;
     [SerializeField] private GameObject[] objectsToTurnOff = null;
     [SerializeField] private GameObject afterCutscene = null;
+    [SerializeField] private GameObject arrow = null;
 
     private bool dialougeStarted = false;
     private bool fading = false;
@@ -29,6 +30,7 @@ public class Level5OpenWorld : MonoBehaviour, ILevelController
     IEnumerator LevelCoroutine()
     {
         playerController.StopPlayer();
+        arrow.SetActive(false);
         uiController.StartConversationWithColor(firstBadGuyConversation.dialouges);
         dialougeStarted = true;
         while (dialougeStarted)
