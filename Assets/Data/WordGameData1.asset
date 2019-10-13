@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407363a65ffc267449fd493d86ef9d3f, type: 3}
   m_Name: WordGameData1
   m_EditorClassIdentifier: 
-  wordGameRows: []
+  wordGameRows:
+  - words:
+    - CAR
+    - TRUCK
+    - BIKE
+    correctOption: 0
+  - words:
+    - ARSON
+    - MURDER
+    - KIDNAP
+    correctOption: 1
+  - words:
+    - GIRL
+    - DOG
+    - BOY
+    correctOption: 2

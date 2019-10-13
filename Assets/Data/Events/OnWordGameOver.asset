@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ad7983d4f9084469d8dc435c6d351d, type: 3}
-  m_Name: DialougeData
+  m_Script: {fileID: 11500000, guid: 105990700a5c459419daf21826bb23b0, type: 3}
+  m_Name: OnWordGameOver
   m_EditorClassIdentifier: 
-  dialouges:
-  - dialouge: 
-    dialougeColor: {r: 0, g: 0, b: 0, a: 0}
-  - dialouge: 
-    dialougeColor: {r: 0, g: 0, b: 0, a: 0}
+  developerDescription: 
+  showDebug: 0

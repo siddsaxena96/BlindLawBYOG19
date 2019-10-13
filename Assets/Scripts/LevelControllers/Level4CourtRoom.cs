@@ -6,14 +6,18 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
 {
     [SerializeField] private PlayerController playerController = null;
     [SerializeField] private NPCController underStudyController = null;
+    [SerializeField] private WordGameController wordGameController = null;
     [SerializeField] private GameObject client = null;
     [SerializeField] private GameObject accused = null;
     [SerializeField] private DialougeSequence witnessDeadDialouge = null;
     [SerializeField] private Transform courtStandingPoint = null;
     [SerializeField] private UIController uIController = null;
     [SerializeField] private GameObject file = null;
+    [SerializeField] private WordGameData wordGameData1 = null;
+
 
     private bool highlightEvent = false;
+    private bool wordGameOn = false;
 
     private void Awake()
     {
@@ -28,7 +32,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     IEnumerator LevelCoroutine()
     {
         yield return new WaitForSeconds(2);
-        uIController.HighlighObject(file,"WHERE IS YOUR FILE ?");
+        uIController.HighlighObject(file, "WHERE IS YOUR FILE ?");
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
@@ -36,18 +40,21 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         underStudyController.OnWalkTo(courtStandingPoint);
         while (underStudyController.isWalking)
             yield return null;
-        uIController.HighlighObject(client,"WHERE IS YOUR CLIENT ?");
+        uIController.HighlighObject(client, "WHERE IS YOUR CLIENT ?");
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
-        uIController.HighlighObject(accused,"WHERE IS THE DEFENDANT ?");
+        uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
-        
-        
+        wordGameController.PlayWordGame(wordGameData1);
+        wordGameOn = true;
+        while (wordGameOn)
+            yield return null;
+
         //uIController.StartConversation(witnessDeadDialouge.dialouges);        
-        
+
         Debug.Log("Done");
         yield return null;
     }
@@ -55,5 +62,10 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     public void OnHighlightOver()
     {
         highlightEvent = false;
+    }
+
+    public void OnWordGameOver()
+    {
+        wordGameOn = false;
     }
 }
