@@ -23,6 +23,7 @@ public class CourtEvent : MonoBehaviour, IEventListener
     [SerializeField] private KeyCode objectionKey = KeyCode.Space;
     private Image objectionImage = null;
     public Transform objectionKeyAnimation = null;
+    public Core.Events.Event OnObjectionEnded;
 
     public Transform sherlockPanel = null;
     public Text sherlockText = null;
@@ -109,6 +110,7 @@ public class CourtEvent : MonoBehaviour, IEventListener
         yield return StartCoroutine(WaitForUserSpacebar(timer));
         if(spaceFound)
         {
+            OnObjectionEnded?.Raise();
             //user clicked
         }
         else
