@@ -23,8 +23,10 @@ public class ConversationController : MonoBehaviour, IEventListener
     private bool clicked = false;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
     [SerializeField] private Core.Events.Event OnConversationStarted, OnConversationEnded = null;
-    
-
+    private int dialogueIndexC = -1;
+    private int dialogueCountC = -1;
+    private bool hasNextDialogueC => dialogueIndexC < dialougesWithColor.Length - 1;
+    private Dialouge[] dialougesWithColor = null;
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class ConversationController : MonoBehaviour, IEventListener
         OnConversationEvent?.RegisterListener(this);
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         OnConversationEvent?.UnregisterListener(this);
     }
@@ -79,7 +81,7 @@ public class ConversationController : MonoBehaviour, IEventListener
                 dialogues = text;
                 //text.Trim();
                 //dialogues = text.Split(new Char[] { '?', '!', ',', '.', '\n' });
-                if(dialogueCount > 0)
+                if (dialogueCount > 0)
                 {
                     OnConversationStarted?.Raise();
                     TryConversation();
@@ -91,6 +93,53 @@ public class ConversationController : MonoBehaviour, IEventListener
         {
             Debug.Log("no conversation passed");
         }
+    }
+
+    internal void ConversationWithColor(Dialouge[] dialouges)
+    {
+        dialogueIndexC = -1;
+        if (dialouges != null)
+        {
+            dialougesWithColor = dialouges;
+            dialogueCountC = dialougesWithColor.Length;
+            if (dialogueCountC > 0)
+            {
+                OnConversationStarted?.Raise();
+                TryConversationC();
+            }
+        }
+    }
+
+    private void TryConversationC()
+    {
+        if (hasNextDialogueC)
+        {
+            NextConversationC();
+        }
+        else
+        {
+            anim.SetBool(convoString, false);
+            OnConversationEnded?.Raise();
+            Debug.Log("Conversation Ended! ");
+        }
+
+    }
+
+    private void NextConversationC()
+    {
+        int index = GetNextDialogueIndexC();
+        this.text.color = dialougesWithColor[index].dialougeColor;
+        this.text.text = dialougesWithColor[index].dialouge;
+        Conversation(true);
+        StartCoroutine(WaitForClickInputC());
+
+    }
+
+    private int GetNextDialogueIndexC()
+    {
+        dialogueIndexC++;
+        dialogueIndexC = dialogueIndexC % dialogueCountC;
+        return dialogueIndexC;
     }
 
     void TryConversation()
@@ -112,8 +161,6 @@ public class ConversationController : MonoBehaviour, IEventListener
         this.text.text = dialogues[GetNextDialogueIndex()];
         Conversation(true);
         StartCoroutine(WaitForClickInput());
-
-
     }
 
     int GetNextDialogueIndex()
@@ -127,7 +174,6 @@ public class ConversationController : MonoBehaviour, IEventListener
     {
         anim.SetBool(convoString, true);
         interactButton.gameObject.SetActive(true);
-
     }
 
     public void Clicked()
@@ -147,5 +193,18 @@ public class ConversationController : MonoBehaviour, IEventListener
         Conversation(false);
         interactButton.onClick.RemoveAllListeners();
         TryConversation();
+    }
+
+    IEnumerator WaitForClickInputC()
+    {
+        interactButton.onClick.AddListener(Clicked);
+        while (clicked == false)
+        {
+            yield return null;
+        }
+        clicked = false;
+        Conversation(false);
+        interactButton.onClick.RemoveAllListeners();
+        TryConversationC();
     }
 }

@@ -74,6 +74,11 @@ public class UIController : MonoBehaviour
         OnConversationEvent?.Raise(temp);
     }
 
+    public void StartConversationWithColor( Dialouge[] dialouges)
+    {
+        conversationController.ConversationWithColor(dialouges);
+    }
+
     public void FadeToBlack()
     {
         StartCoroutine(FadePanel(0));
