@@ -391,5 +391,68 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1591542719}
+    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -581
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145799647, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774803, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774803, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554564072939774803, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754884856, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}

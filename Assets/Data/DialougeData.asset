@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ad7983d4f9084469d8dc435c6d351d, type: 3}
   m_Name: DialougeData
   m_EditorClassIdentifier: 
-  dialouges: []
+  dialouges:
+  - dialouge: 
+    dialougeColor: {r: 0, g: 0, b: 0, a: 0}
