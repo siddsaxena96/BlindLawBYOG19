@@ -12,7 +12,6 @@ public class Level5OpenWorld : MonoBehaviour, ILevelController
     [SerializeField] private UIController uiController = null;
     [SerializeField] private DialougeSequence firstBadGuyConversation = null;
     [SerializeField] private DialougeSequence secondBadGuyConversation = null;
-    [SerializeField] private GameObject gunInHand = null;
     [SerializeField] private GameObject[] objectsToTurnOff = null;
     [SerializeField] private GameObject afterCutscene = null;
 
@@ -43,24 +42,46 @@ public class Level5OpenWorld : MonoBehaviour, ILevelController
         uiController.FadeToBlack();
         fading = true;
         while (fading)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
+            yield return null;
+        foreach (var item in objectsToTurnOff)
+            item.SetActive(false);
         uiController.ToggleFadePanel(false);
         firstCutscene.PlayCutScene();
         cutSceneOn = true;
         while (cutSceneOn)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
+            yield return null;
         uiController.ToggleFadePanel(true);
-        foreach (var item in objectsToTurnOff)
-        {
-            item.SetActive(false);
-        }
-
+        uiController.FadeFromBlack();
+        fading = true;
+        afterCutscene.SetActive(true);
+        while (fading)
+            yield return null;
+        uiController.StartConversationWithColor(secondBadGuyConversation.dialouges);
+        dialougeStarted = true;
+        while(dialougeStarted)
+            yield return null;
+        yield return new WaitForSeconds(1);
+        uiController.FadeToBlack();
+        fading =true;
+        while (fading)
+            yield return null;
+        Debug.Log("GG");
 
         yield return null;
     }
 
+    public void OnDialougeOver()
+    {
+        dialougeStarted = false;
+    }
+
+    public void OnFadeOver()
+    {
+        fading = false;
+    }
+
+    public void OnCutSceneOver()
+    {
+        cutSceneOn = false;
+    }
 }
