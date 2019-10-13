@@ -19,5 +19,5 @@ MonoBehaviour:
   - dialouge: 'Mr Hat : You tell your client, the case is over. The witness is died
       and so will she if the case isn''t dropped.'
     dialougeColor: {r: 1, g: 0.4448824, b: 0, a: 1}
-  - dialouge: 'Mr Hat : No go home dipshit, and hope you never see me again'
+  - dialouge: 'Mr Hat : Now go home dipshit, and hope you never see me again'
     dialougeColor: {r: 1, g: 0.38841492, b: 0, a: 1}

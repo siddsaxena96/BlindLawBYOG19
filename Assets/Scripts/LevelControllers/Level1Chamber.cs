@@ -16,6 +16,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     [SerializeField] private Transform chairRight = null;
     [SerializeField] private UIController uiController;
     [SerializeField] private DialougeSequence[] dialouges = null;
+    [SerializeField] private GameObject helpText = null;
 
     private int dialougeNumber = 0;
     private bool dialogueStarted = false;
@@ -43,7 +44,8 @@ public class Level1Chamber : MonoBehaviour, ILevelController
 
         //yield return new WaitForSeconds(3);
 
-
+        yield return new WaitForSeconds(2);
+        helpText.SetActive(false);
         StartNextDialogueSequence();
         while (dialogueStarted == true)
             yield return null;

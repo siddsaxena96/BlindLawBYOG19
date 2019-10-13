@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level8Chamber : MonoBehaviour, ILevelController
 {
@@ -9,12 +10,13 @@ public class Level8Chamber : MonoBehaviour, ILevelController
     [SerializeField] private DialougeSequence finalSequence2 = null;
     [SerializeField] private GameObject gunObject = null;
     [SerializeField] private CameraFollow cameraController = null;
-    [SerializeField] private GameObject finaltext = null;    
-    
-    private bool dialougeOn = false; 
+    [SerializeField] private GameObject finaltext = null;
+
+    private bool dialougeOn = false;
     private bool fading = false;
 
-    private void Start() {
+    private void Start()
+    {
         StartLevel();
     }
 
@@ -27,20 +29,22 @@ public class Level8Chamber : MonoBehaviour, ILevelController
     {
         uiController.StartConversationWithColor(finalSequence.dialouges);
         dialougeOn = true;
-        while(dialougeOn)
+        while (dialougeOn)
             yield return null;
         gunObject.SetActive(true);
         uiController.StartConversationWithColor(finalSequence2.dialouges);
-        dialougeOn=true;
-        while(dialougeOn)
+        dialougeOn = true;
+        while (dialougeOn)
             yield return null;
-        cameraController.Shake(1,2);
+        cameraController.Shake(1, 2);
         finaltext.SetActive(true);
         uiController.FadeToBlack();
         fading = true;
-        while(fading)
+        while (fading)
             yield return null;
         Debug.Log("over");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("BadEnd");
         yield return null;
     }
 
