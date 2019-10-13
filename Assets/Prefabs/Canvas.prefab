@@ -119,7 +119,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23159841}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1624589750}
+        m_MethodName: ProcessAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &58595306
@@ -241,7 +252,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 58595309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1624589750}
+        m_MethodName: ProcessAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &78019074
@@ -363,7 +385,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 78019077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1624589750}
+        m_MethodName: ProcessAnswer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &210263704
@@ -528,8 +561,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 754884857}
+  - component: {fileID: 1624589749}
+  - component: {fileID: 1624589750}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: WordGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -555,6 +590,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1624589749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754884856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6b54bc07f70df4d945fc0d1148d374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowElements:
+  - {fileID: 1672782576}
+  - {fileID: 2087309097}
+  - {fileID: 372589651}
+--- !u!114 &1624589750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754884856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ff089504ec1e645a71045ca8001a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPanel: {fileID: 1413963243872549710}
+  gameText: {fileID: 1493944722}
+  buttonList:
+  - {fileID: 78019076}
+  - {fileID: 23159840}
+  - {fileID: 58595308}
+  buttonRow: {fileID: 1624589749}
+  rightColor: {r: 0.2502427, g: 1, b: 0, a: 1}
+  wrongColor: {r: 1, g: 0.027940515, b: 0, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  onGameComplete: {fileID: 11400000, guid: 4dde9b7b528a12c46b611a07fe5e6318, type: 2}
 --- !u!1 &1441501963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8707084134120758687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1300,8 +1374,8 @@ MonoBehaviour:
   pointerOffset: {x: 0, y: 2}
   guidanceText: {fileID: 1505268233}
   courtEvent: {fileID: 1624589747}
-  OnObjectionRaised: {fileID: 0}
-  OnSherlock: {fileID: 0}
+  OnObjectionRaised: {fileID: 11400000, guid: 9cb0edc19649f8b41b6f45ecdd5c45d2, type: 2}
+  OnSherlock: {fileID: 11400000, guid: ff52041b73556ef49a6418b2edcc5bf0, type: 2}
 --- !u!114 &1624589747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,31 +1831,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765346015208047725, guid: 4a4595b62d081e744bc355d068bda264,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765346015208047725, guid: 4a4595b62d081e744bc355d068bda264,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765346015208047725, guid: 4a4595b62d081e744bc355d068bda264,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765346015208047725, guid: 4a4595b62d081e744bc355d068bda264,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7765346015208047725, guid: 4a4595b62d081e744bc355d068bda264,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4595b62d081e744bc355d068bda264, type: 3}

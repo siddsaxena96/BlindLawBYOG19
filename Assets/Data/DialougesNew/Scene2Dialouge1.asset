@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialouges:
   - dialouge: 'Mr Hat : Hold on There ! '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: Who are you ?'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : I am Mr.Hat, I put a lid on problems '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : Now, you see the case you''ve taken.... JJ is a good boy and
       that dead kid ? good for nothing slum scrap'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: I am not discussing my case with you... goodbye'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : Perharps this can persuade you... '
-    dialougeColor: {r: 0.4008431, g: 0.7735849, b: 0.22988607, a: 0}
+    dialougeColor: {r: 0.4008431, g: 0.7735849, b: 0.22988607, a: 1}

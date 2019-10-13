@@ -15,7 +15,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     [SerializeField] private Transform chairLeft = null;
     [SerializeField] private Transform chairRight = null;
     [SerializeField] private UIController uiController;
-    [SerializeField] private DialougeAsset[] dialouges = null;
+    [SerializeField] private DialougeSequence[] dialouges = null;
 
     private int dialougeNumber = 0;
     private bool dialogueStarted = false;
@@ -81,7 +81,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     private void StartNextDialogueSequence()
     {
         dialogueStarted = true;
-        uiController.StartConversation(dialouges[dialougeNumber].dialouges);
+        uiController.StartConversationWithColor(dialouges[dialougeNumber].dialouges);
         dialougeNumber++;
         StartCoroutine(WaitForDialogueToEnd());
     }

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialouges:
   - dialouge: 'Hyde: What do you want ?'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : To help his mother, give her the means to live a happy life'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: and the case goes away ? '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : Not important, but yes '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: It''s not so easy to scare me '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Mr Hat : Well, I really didn''t want to do this '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}

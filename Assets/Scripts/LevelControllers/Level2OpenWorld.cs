@@ -11,9 +11,9 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
     [SerializeField] private Transform[] runPoints = null;
     [SerializeField] private NPCController shopKeeper = null;
     [SerializeField] private UIController uiController = null;
-    [SerializeField] private DialougeAsset firstBadGuyConversation = null;
-    [SerializeField] private DialougeAsset secondBadGuyConversation = null;
-    [SerializeField] private DialougeAsset thirdBadGuyConversation = null;
+    [SerializeField] private DialougeSequence firstBadGuyConversation = null;
+    [SerializeField] private DialougeSequence secondBadGuyConversation = null;
+    [SerializeField] private DialougeSequence thirdBadGuyConversation = null;
     [SerializeField] private GameObject gunInHand = null;
     [SerializeField] private GameObject[] objectsToTurnOff = null;
     [SerializeField] private GameObject afterCutscene = null;
@@ -31,7 +31,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
     IEnumerator LevelCoroutine()
     {
         playerController.StopPlayer();
-        uiController.StartConversation(firstBadGuyConversation.dialouges);
+        uiController.StartConversationWithColor(firstBadGuyConversation.dialouges);
         dialougeStarted = true;
         while (dialougeStarted)
         {
@@ -46,7 +46,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         }
         shopKeeper?.OnSit();
         yield return new WaitForSeconds(3);
-        uiController.StartConversation(secondBadGuyConversation.dialouges);
+        uiController.StartConversationWithColor(secondBadGuyConversation.dialouges);
         dialougeStarted = true;
         while (dialougeStarted)
         {
@@ -78,7 +78,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         {
             yield return new WaitForSeconds(0.1f);
         }
-        uiController.StartConversation(thirdBadGuyConversation.dialouges);
+        uiController.StartConversationWithColor(thirdBadGuyConversation.dialouges);
         dialougeStarted = true;
         while (dialougeStarted)
         {
@@ -91,7 +91,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         {
             yield return new WaitForSeconds(0.1f);
         }
-        SceneManager.LoadScene("Scene3Chamber");
+        SceneManager.LoadScene("SceneThreeChamber");
         Debug.Log("Enum khatam");
         yield return null;
     }

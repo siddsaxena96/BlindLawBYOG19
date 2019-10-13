@@ -2634,16 +2634,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564073393737989, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 2554564073393737989, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2652,31 +2642,6 @@ PrefabInstance:
     - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -600
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
@@ -2703,11 +2668,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774803, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}
@@ -4692,8 +4652,8 @@ MonoBehaviour:
   chairRight: {fileID: 418457521}
   uiController: {fileID: 1927955003}
   dialouges:
-  - {fileID: 11400000, guid: 9a555bc21fd65cf46b33faacdc9dd5d4, type: 2}
-  - {fileID: 11400000, guid: 534d899d16756ce469f944d139da476c, type: 2}
+  - {fileID: 11400000, guid: c0cfd4ee28b6aa24ba85458b7fc49ebd, type: 2}
+  - {fileID: 11400000, guid: d737ac2bd1bbeda4f8a99e312acf28a5, type: 2}
 --- !u!4 &1300241635
 Transform:
   m_ObjectHideFlags: 0

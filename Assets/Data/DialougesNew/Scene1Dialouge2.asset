@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialouges:
   - dialouge: 'Client: He was just walking home...my boy... '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: I am sorry for your loss... '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Client: He crushed my son with his car and just drove away...'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: I read the file '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Client: just drove away.....'
-    dialougeColor: {r: 0.3532396, g: 0.9245283, b: 0.8965765, a: 0}
+    dialougeColor: {r: 0.3532396, g: 0.9245283, b: 0.8965765, a: 1}
   - dialouge: 'Hyde;  We can''t say for certain if your son was on the road or the
       footpath '
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Client: and that matters ? he murdered my son !'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
   - dialouge: 'Hyde: It could in court...... I''am just telling you how it is.'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}

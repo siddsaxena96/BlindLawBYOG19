@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialouges:
   - dialouge: 'Syl: So now you take bloodmoney, huh ? '
-    dialougeColor: {r: 0.60621494, g: 0.754717, b: 0.24563903, a: 0}
+    dialougeColor: {r: 0.60621494, g: 0.754717, b: 0.24563903, a: 1}
   - dialouge: 'Hyde: What !?!?'
-    dialougeColor: {r: 0.8679245, g: 0.118725546, b: 0.118725546, a: 0}
+    dialougeColor: {r: 0.8679245, g: 0.118725546, b: 0.118725546, a: 1}
   - dialouge: 'Syl: Nothing, you should rest. You have court tomorrow.'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 0}
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
