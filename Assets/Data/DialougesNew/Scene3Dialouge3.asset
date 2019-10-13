@@ -18,4 +18,4 @@ MonoBehaviour:
   - dialouge: 'Hyde: What !?!?'
     dialougeColor: {r: 0.8679245, g: 0.118725546, b: 0.118725546, a: 1}
   - dialouge: 'Syl: Nothing, you should rest. You have court tomorrow.'
-    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
+    dialougeColor: {r: 1, g: 0, b: 0, a: 1}

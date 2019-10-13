@@ -25,7 +25,7 @@ public class SherlockController : MonoBehaviour, IEventListener
     {
         if (parameters != null)
         {
-            textToDisplay = (string[])parameters[0];
+            textToDisplay = (string[])parameters[1];
             StartCoroutine(SplitText());
             currentTextCount = -1;
         }

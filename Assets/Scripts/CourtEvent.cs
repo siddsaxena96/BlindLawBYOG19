@@ -28,6 +28,7 @@ public class CourtEvent : MonoBehaviour, IEventListener
     public Transform sherlockPanel = null;
     public Text sherlockText = null;
     public Animator sherlockAnim = null;
+    [SerializeField] private Transform objectionIndicator = null;
 
 
 
@@ -62,12 +63,12 @@ public class CourtEvent : MonoBehaviour, IEventListener
             CourtEvents option = (CourtEvents)parameters[0];
             switch (option)
             {
-                case CourtEvents.Sherlock:
-                    string[] temp = (string[])parameters[1];
-                    float alphaLag = (float)parameters[2];
-                    float sentLag = (float)parameters[3];
-                    StartCoroutine(SherlockStrings(temp, alphaLag, sentLag));
-                    break;
+                // case CourtEvents.Sherlock:
+                //     string[] temp = (string[])parameters[1];
+                //     float alphaLag = (float)parameters[2];
+                //     float sentLag = (float)parameters[3];
+                //     StartCoroutine(SherlockStrings(temp, alphaLag, sentLag));
+                //     break;
                 case CourtEvents.Objection:
                     int a = (int)parameters[1];
                     int b = (int)parameters[2];
@@ -105,6 +106,9 @@ public class CourtEvent : MonoBehaviour, IEventListener
         spaceFound = false;
         inRange = false;
         returnSeek = false;
+        objectionIndicator.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        objectionIndicator.gameObject.SetActive(false);
         objectionPanel.gameObject.SetActive(true);
         StartCoroutine(SlideTween(min, max, timer));
         yield return StartCoroutine(WaitForUserSpacebar(timer));

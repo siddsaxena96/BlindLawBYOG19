@@ -61,8 +61,10 @@ public class UIController : MonoBehaviour
 
     public void Sherlock(string[] text)
     {
+        object a = CourtEvent.CourtEvents.Sherlock;
         object o = text;
         List<object> ob = new List<object>();
+        ob.Add(a);
         ob.Add(o);
         OnSherlock?.Raise(ob);
     }
