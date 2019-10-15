@@ -61,6 +61,10 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         {
             yield return new WaitForSeconds(0.1f);
         }
+        foreach (var item in objectsToTurnOff)
+        {
+            item.SetActive(false);
+        }
         uiController.ToggleFadePanel(false);
         firstCutscene.PlayCutScene();
         cutSceneOn = true;
@@ -68,11 +72,7 @@ public class Level2OpenWorld : MonoBehaviour, ILevelController
         {
             yield return new WaitForSeconds(0.1f);            
         }
-        uiController.ToggleFadePanel(true);
-        foreach (var item in objectsToTurnOff)
-        {
-            item.SetActive(false);
-        }
+        uiController.ToggleFadePanel(true);        
         afterCutscene.SetActive(true);
         uiController.FadeFromBlack();
         fading = true;
