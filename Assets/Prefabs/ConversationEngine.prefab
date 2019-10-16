@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 100, y: 435.12833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &105196956845497874
 CanvasRenderer:
@@ -106,7 +106,7 @@ RectTransform:
   m_GameObject: {fileID: 7765346013870297572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.048699, y: 2.8470302, z: 5.2967997}
+  m_LocalScale: {x: 9.048699, y: 0.747744, z: 5.2967997}
   m_Children:
   - {fileID: 7765346015208047725}
   - {fileID: 8836756892625112379}
@@ -290,7 +290,6 @@ GameObject:
   - component: {fileID: 7765346015208047725}
   - component: {fileID: 7765346015208047730}
   - component: {fileID: 7765346015208047731}
-  - component: {fileID: 2057222031208549001}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -307,15 +306,15 @@ RectTransform:
   m_GameObject: {fileID: 7765346015208047726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2256152, y: 0.4568708, z: 0.2256152}
+  m_LocalScale: {x: 0.2256152, y: 2.2670386, z: 0.2256152}
   m_Children: []
   m_Father: {fileID: 7765346013870297579}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 79.315025, y: 0}
-  m_SizeDelta: {x: 703.1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 703.1, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7765346015208047730
 CanvasRenderer:
@@ -359,17 +358,3 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'John Doe: Hello'
---- !u!114 &2057222031208549001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7765346015208047726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
