@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.Events
 {
-    /// <summary>
+/// <summary>
     /// A asset-based Event which acts as a hybrid between C# events and UnityEvents. Utilizes ScriptableObject asset ID hash as the reference.
     /// </summary>
     [CreateAssetMenu]
-    public class Event : ScriptableObject
+    public class EventWithParameteres : ScriptableObject
     {
 #if UNITY_EDITOR
         /// <summary>
@@ -30,12 +30,12 @@ namespace Core.Events
         /// <summary>
         /// The list of listeners that this event will notify if it is raised.
         /// </summary>
-        private readonly List<IEventListener> eventListeners = new List<IEventListener>();
+        private readonly List<IEventListener> eventListenersWithParameters = new List<IEventListener>();
 
         /// <summary>
         /// Raises the Event.
         /// </summary>
-        public virtual void Raise()
+        public virtual void Raise(List<object> parameters)
         {
 #if UNITY_EDITOR
             if (showDebug)
@@ -43,9 +43,9 @@ namespace Core.Events
                 Debug.Log(string.Format("[{0}] Event [{1}] raised", System.DateTime.Now, name));
             }
 #endif
-            for (int i = eventListeners.Count - 1; i >= 0; i--)
+            for (int i = eventListenersWithParameters.Count - 1; i >= 0; i--)
             {
-                eventListeners[i]?.OnEventRaised();
+                eventListenersWithParameters[i]?.OnEventRaisedWithParameters(parameters);
             }
         }
 
@@ -55,9 +55,9 @@ namespace Core.Events
         /// <param name="listener">The EventListener to register.</param>
         public void RegisterListener(IEventListener listener)
         {
-            if (!eventListeners.Contains(listener))
+            if (!eventListenersWithParameters.Contains(listener))
             {
-                eventListeners.Add(listener);
+                eventListenersWithParameters.Add(listener);
             }
         }
 
@@ -67,20 +67,15 @@ namespace Core.Events
         /// <param name="listener">The EventListener to un-register.</param>
         public void UnregisterListener(IEventListener listener)
         {
-            if (eventListeners.Contains(listener))
+            if (eventListenersWithParameters.Contains(listener))
             {
-                eventListeners.Remove(listener);
+                eventListenersWithParameters.Remove(listener);
             }
         }
 
         /// <summary>
         /// The number of active listeners.
         /// </summary>
-        public int ActiveListenerCount => eventListeners.Count;
+        public int ActiveListenerCount => eventListenersWithParameters.Count;
     }
-
-
- 
-
-
 }

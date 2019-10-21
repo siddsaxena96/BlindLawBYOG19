@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   cigaretteAnimator: {fileID: 125677123}
+  smokingSound: {fileID: 0}
 --- !u!1 &5932359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2591,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 6164548508190532858, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548508054051026, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
