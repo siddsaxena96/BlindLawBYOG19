@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
         o.Add(b);
         o.Add(c);
         o.Add(timer);
-        OnObjectionRaised.Raise(o);
+        OnObjectionRaised?.Raise(o);
     }
 
     public void OldSherlock(string[] s, float alphaLag, float sentLag)

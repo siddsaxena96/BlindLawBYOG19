@@ -64,21 +64,21 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         while (wordGameOn)
             yield return null;
         wordGameController.TurnOffGame();
-        uIController.Sherlock(phrases);
+        //uIController.Sherlock(phrases);
         uIController.ObjectionEvent(30, 60, 2);
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         underStudyController.OnWalkTo(courtStandingPoint);
         while (underStudyController.isWalking)
             yield return null;
         uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        uIController.Sherlock(phrases);
+        //uIController.Sherlock(phrases);
         dialougeOn = true;
         while(dialougeOn)
             yield return null;
        
-        uIController.Sherlock(phrases);
+        //uIController.Sherlock(phrases);
         uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        uIController.Sherlock(phrases);
+        //uIController.Sherlock(phrases);
         uIController.FadeToBlack();
         fading = true;
         while(fading)
