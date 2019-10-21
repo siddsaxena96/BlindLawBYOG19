@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   cigaretteAnimator: {fileID: 125677123}
+  smokingSound: {fileID: 0}
 --- !u!1 &5932359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2123,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &547869135
 RectTransform:
@@ -2809,6 +2810,41 @@ PrefabInstance:
     - target: {fileID: 3609029135920523803, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548508190532858, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548508054051026, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5817,7 +5853,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2190891076048460630, guid: cde6e470c34074441ac04623ef51e3be,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

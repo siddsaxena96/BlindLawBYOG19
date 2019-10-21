@@ -25,6 +25,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     private void Start()
     {
         StartLevel();
+        helpText.SetActive(true);
     }
 
     public void StartLevel()

@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Scene1Dialougue1
   m_EditorClassIdentifier: 
   dialouges:
-  - dialouge: 'Syl: The accused kid''s father called, says he wants to talk.'
+  - dialouge: 'Syl : The accused called, says he wants to talk.'
     dialougeColor: {r: 1, g: 0, b: 0, a: 1}
-  - dialouge: 'Hyde: and you answered the phone ?'
+  - dialouge: 'Hyde : and you answered the phone ?'
     dialougeColor: {r: 1, g: 1, b: 1, a: 1}
-  - dialouge: 'Syl: Yes, I told him...'
+  - dialouge: 'Syl : Yes, I told him...'
     dialougeColor: {r: 0.9811321, g: 0.06016379, b: 0.06016379, a: 1}
-  - dialouge: 'Hyde: What have I told you about touching the phone ?'
+  - dialouge: 'Hyde : What have I told you about touching the phone ?'
     dialougeColor: {r: 0.9056604, g: 0.59606886, b: 0.26059094, a: 1}
-  - dialouge: 'Syl: ...'
+  - dialouge: 'Syl : ...'
     dialougeColor: {r: 1, g: 0, b: 0, a: 1}
-  - dialouge: 'Hyde: Come in please...'
+  - dialouge: 'Hyde : Come in please...'
     dialougeColor: {r: 1, g: 1, b: 1, a: 1}

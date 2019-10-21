@@ -133,8 +133,8 @@ public class ConversationController : MonoBehaviour, IEventListener
     private void NextConversationC()
     {
         int index = GetNextDialogueIndexC();
-        this.text.color = dialougesWithColor[index].dialougeColor;
-        this.text.text = dialougesWithColor[index].dialouge;
+        this.textFake.color = dialougesWithColor[index].dialougeColor;
+        this.text.text = "\n" + dialougesWithColor[index].dialouge + "\n";
         this.textFake.text = dialougesWithColor[index].dialouge;
         Conversation(true);
         StartCoroutine(WaitForClickInputC());
@@ -165,7 +165,7 @@ public class ConversationController : MonoBehaviour, IEventListener
     void NextConversation()
     {
         this.text.text = dialogues[GetNextDialogueIndex()];
-        this.textFake.text = dialogues[GetNextDialogueIndex()];    
+        this.textFake.text = dialogues[GetNextDialogueIndex()];
         Conversation(true);
         StartCoroutine(WaitForClickInput());
     }
