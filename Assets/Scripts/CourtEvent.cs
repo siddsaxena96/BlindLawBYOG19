@@ -150,6 +150,7 @@ public class CourtEvent : MonoBehaviour, IEventListener
                 {
                     //objectionAnim.SetBool(objectionAnimString, true);
                     inRange = true;
+                    print("range");
                     objectionImage.color = Color.green;
                     objectionKeyAnimation.gameObject.SetActive(true);
 
@@ -184,9 +185,13 @@ public class CourtEvent : MonoBehaviour, IEventListener
     {
         if (waitForSpace)
         {
+            Debug.Log("waiting for space");
+
             if (Input.GetKeyDown(objectionKey) && inRange)
             {
-                spaceFound = true;         
+                spaceFound = true;
+
+                Debug.Log("found");
             }
         }
 
