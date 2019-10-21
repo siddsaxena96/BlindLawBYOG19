@@ -29,6 +29,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
     private bool dialougeOn = false;
     private bool wordGameOn = false;
     private bool fading = false;
+    private bool objectionOn = false;
 
     private void Awake()
     {
@@ -42,7 +43,8 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
 
     IEnumerator LevelCoroutine()
     {
-         yield return new WaitForSeconds(2);
+        uIController.Sherlock(phrases);
+        yield return new WaitForSeconds(2);
         uIController.StartConversationWithColor(firstDialouge.dialouges);
         dialougeOn = true;
         while (dialougeOn)
@@ -55,7 +57,7 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
-        uIController.HighlighObject(accused, "WHERE IS THE DEFENDANT ?");
+        uIController.HighlighObject(accused, "WHERE IS THE ACCUSED ?");
         highlightEvent = true;
         while (highlightEvent)
             yield return null;
@@ -64,24 +66,20 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         while (wordGameOn)
             yield return null;
         wordGameController.TurnOffGame();
-        //uIController.Sherlock(phrases);
         uIController.ObjectionEvent(30, 60, 2);
-        //yield return new WaitForSeconds(2);
+        objectionOn = true;
+        while (objectionOn)
+            yield return null;        
         underStudyController.OnWalkTo(courtStandingPoint);
         while (underStudyController.isWalking)
             yield return null;
         uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        //uIController.Sherlock(phrases);
         dialougeOn = true;
-        while(dialougeOn)
+        while (dialougeOn)
             yield return null;
-       
-        //uIController.Sherlock(phrases);
-        uIController.StartConversationWithColor(witnessDeadDialouge.dialouges);
-        //uIController.Sherlock(phrases);
         uIController.FadeToBlack();
         fading = true;
-        while(fading)
+        while (fading)
             yield return null;
         SceneManager.LoadScene("Scene6Street");
 
@@ -104,7 +102,13 @@ public class Level4CourtRoom : MonoBehaviour, ILevelController
         dialougeOn = false;
     }
 
-    public void OnFadeOver(){
+    public void OnFadeOver()
+    {
         fading = false;
+    }
+
+    public void OnObjectionOver()
+    {
+        objectionOn = false;
     }
 }

@@ -34,7 +34,8 @@ public class CourtEvent : MonoBehaviour, IEventListener
 
 
     //[SerializeField] private Core.Events.Event OnObjectionRaised;
-    [SerializeField] private Core.Events.EventWithParameteres OnSherlock, OnObjectionRaised;
+    [SerializeField] private Core.Events.EventWithParameteres OnSherlock = null;
+    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised = null;
 
     public void OnEventRaised()
     {
@@ -94,8 +95,6 @@ public class CourtEvent : MonoBehaviour, IEventListener
             yield return new WaitForSeconds(sentLag);
         }
         sherlockPanel.gameObject.SetActive(false);
-
-
     }
 
     IEnumerator ObjectionTrigger(int min, int max, float timer)
@@ -150,7 +149,6 @@ public class CourtEvent : MonoBehaviour, IEventListener
             {
                 //objectionAnim.SetBool(objectionAnimString, true);
                 inRange = true;
-                print("range");
                 objectionImage.color = Color.green;
                 objectionKeyAnimation.gameObject.SetActive(true);
 
@@ -191,15 +189,10 @@ public class CourtEvent : MonoBehaviour, IEventListener
     {
         if (waitForSpace)
         {
-            Debug.Log("waiting for space");
-
             if (Input.GetKeyDown(objectionKey) && inRange)
             {
                 spaceFound = true;
-
-                Debug.Log("found");
             }
         }
-
     }
 }

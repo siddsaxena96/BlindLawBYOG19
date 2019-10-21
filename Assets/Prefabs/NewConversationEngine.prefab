@@ -87,12 +87,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3458729782ed3524bab610885e069c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  resizeText: {fileID: 7634890757050325494}
+  displayText: {fileID: 7634890757177894360}
   anim: {fileID: 0}
-  interactButton: {fileID: 0}
+  mainGameObject: {fileID: 0}
+  interactPanel: {fileID: 0}
   OnConversationEvent: {fileID: 0}
   OnConversationStarted: {fileID: 0}
   OnConversationEnded: {fileID: 0}
+  OnClicked: {fileID: 0}
+  OnStartClick: {fileID: 0}
 --- !u!1 &7634890757050325490
 GameObject:
   m_ObjectHideFlags: 0

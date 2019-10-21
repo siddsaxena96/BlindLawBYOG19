@@ -9,8 +9,8 @@ using System.Text.RegularExpressions;
 public class ConversationController : MonoBehaviour, IEventListener
 {
 
-    [SerializeField] private Text text = null;
-    [SerializeField] private Text textFake = null;
+    [SerializeField] private Text resizeText = null;
+    [SerializeField] private Text displayText = null;
     [SerializeField] private Animator anim = null;
     private string[] dialogues = null;
     public string[] Dialogues => dialogues;
@@ -24,7 +24,7 @@ public class ConversationController : MonoBehaviour, IEventListener
     private readonly string convoString = "convoString";
     private bool clicked = false;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
-    [SerializeField] private Core.Events.Event OnConversationStarted, OnConversationEnded = null;
+    [SerializeField] private Core.Events.Event OnConversationStarted = null, OnConversationEnded = null;
     private int dialogueIndexC = -1;
     private int dialogueCountC = -1;
     private bool hasNextDialogueC => dialogueIndexC < dialougesWithColor.Length - 1;
@@ -49,7 +49,7 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     public void NormalConversation(string s)
     {
-        text.text = s;
+        resizeText.text = s;
         ResetAnimation();
         StartAnimation();
     }
@@ -132,10 +132,10 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     private void NextConversationC()
     {
-        int index = GetNextDialogueIndexC();
-        this.text.color = dialougesWithColor[index].dialougeColor;
-        this.text.text = dialougesWithColor[index].dialouge;
-        this.textFake.text = dialougesWithColor[index].dialouge;
+        int index = GetNextDialogueIndexC();        
+        this.resizeText.text = "\n" + dialougesWithColor[index].dialouge + "\n";
+        this.displayText.color = dialougesWithColor[index].dialougeColor;
+        this.displayText.text = dialougesWithColor[index].dialouge;
         Conversation(true);
         StartCoroutine(WaitForClickInputC());
 
@@ -164,8 +164,8 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     void NextConversation()
     {
-        this.text.text = dialogues[GetNextDialogueIndex()];
-        this.textFake.text = dialogues[GetNextDialogueIndex()];    
+        this.resizeText.text = dialogues[GetNextDialogueIndex()];
+        this.displayText.text = dialogues[GetNextDialogueIndex()];
         Conversation(true);
         StartCoroutine(WaitForClickInput());
     }

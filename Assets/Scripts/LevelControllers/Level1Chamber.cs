@@ -14,7 +14,7 @@ public class Level1Chamber : MonoBehaviour, ILevelController
     [SerializeField] private Transform wallStandingPoint = null;
     [SerializeField] private Transform chairLeft = null;
     [SerializeField] private Transform chairRight = null;
-    [SerializeField] private UIController uiController;
+    [SerializeField] private UIController uiController = null;
     [SerializeField] private DialougeSequence[] dialouges = null;
     [SerializeField] private GameObject helpText = null;
 

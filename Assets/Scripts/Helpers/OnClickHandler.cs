@@ -9,7 +9,6 @@ public class OnClickHandler : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("Clicked");
         onObjectClicked?.Invoke();
     }
 }

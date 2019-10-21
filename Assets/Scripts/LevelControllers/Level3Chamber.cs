@@ -12,7 +12,7 @@ public class Level3Chamber : MonoBehaviour, ILevelController
     [SerializeField] private Transform spawnPoint = null;
     [SerializeField] private Transform chairLeft = null;
     [SerializeField] private Transform chairRight = null;
-    [SerializeField] private UIController uiController;
+    [SerializeField] private UIController uiController = null;
     [SerializeField] private DialougeSequence firstDialouge = null;
     [SerializeField] private DialougeSequence secondDialouge = null;
     [SerializeField] private DialougeSequence thirdDialouge = null;

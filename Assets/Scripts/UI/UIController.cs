@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
 
     [Header("CourtEvents")]
     [SerializeField] private CourtEvent courtEvent = null;
-    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised, OnSherlock;
+    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised = null, OnSherlock = null;
 
     public void ObjectionEvent(int min, int max, float t)
     {
@@ -106,6 +106,8 @@ public class UIController : MonoBehaviour
 
     IEnumerator FadePanel(int fadeFrom)
     {
+        Color final = fadePanel.color;
+        final.a = 1 - fadeFrom;
         switch (fadeFrom)
         {
             case 0:
@@ -127,6 +129,8 @@ public class UIController : MonoBehaviour
                 }
                 break;
         }
+        fadePanel.color = final;
+        yield return new WaitForSeconds(1.5f);
         fadeComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }
@@ -173,7 +177,7 @@ public class UIController : MonoBehaviour
             highlightPanel.color = c;
             yield return new WaitForSeconds(.1f);
         }
-        Debug.Log("Raising Highlight Complete");
+        Debug.Log("Highlight Complete");
         highlightComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }

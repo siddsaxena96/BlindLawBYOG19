@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 182e72d1883a1f64296f962d5021d060
   - enabled: 1
-    path: Assets/Scenes/SceneOneChamber.unity
-    guid: aa57173ff1dc21440b881333eb32af66
+    path: Assets/Scenes/SceneOneChamberNew.unity
+    guid: 6435a3fe013a6394981046c821110d06
   - enabled: 1
     path: Assets/Scenes/SceneTwoDarkStreet.unity
     guid: 58a273e7944420643b868551d7c19a26
