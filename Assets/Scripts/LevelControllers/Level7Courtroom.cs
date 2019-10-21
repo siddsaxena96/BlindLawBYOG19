@@ -76,9 +76,7 @@ public class Level7Courtroom : MonoBehaviour, ILevelController
         uIController.StartConversationWithColor(winnderdialouge2.dialouges);
         dialougeOn = true;
         while (dialougeOn)
-            yield return null;
-
-        uIController.Sherlock(phrases);
+            yield return null;        
         uIController.FadeToBlack();
         fading = true;
         while (fading)

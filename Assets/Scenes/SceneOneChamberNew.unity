@@ -802,6 +802,12 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 641639332}
+    - target: {fileID: 2554564073393737995, guid: 523cd9396ea15e44fad5e7d352fd098e,
+        type: 3}
+      propertyPath: OnConversationEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 34ff348a7209e34489d571717a875b24,
+        type: 2}
     - target: {fileID: 1624589747, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}
       propertyPath: m_Enabled
       value: 0

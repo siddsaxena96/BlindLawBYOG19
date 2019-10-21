@@ -1386,7 +1386,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationController: {fileID: 6793599087868496401}
-  OnConversationEvent: {fileID: 11400000, guid: 4cce0447868c3404b80237ddec01b9d4,
+  OnConversationEvent: {fileID: 11400000, guid: 34ff348a7209e34489d571717a875b24,
     type: 2}
   fadePanel: {fileID: 2145799648}
   fadeComplete: {fileID: 11400000, guid: 230f9a266f8daa6488ff2bd1002f95e0, type: 2}
@@ -2101,12 +2101,6 @@ PrefabInstance:
       propertyPath: interactPanel
       value: 
       objectReference: {fileID: 6164548507486198573}
-    - target: {fileID: 7079591430559659802, guid: cced851192c5b0941a1a56537dd3fea7,
-        type: 3}
-      propertyPath: OnConversationEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 4cce0447868c3404b80237ddec01b9d4,
-        type: 2}
     - target: {fileID: 7079591430559659802, guid: cced851192c5b0941a1a56537dd3fea7,
         type: 3}
       propertyPath: OnConversationStarted

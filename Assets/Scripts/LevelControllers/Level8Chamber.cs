@@ -11,6 +11,7 @@ public class Level8Chamber : MonoBehaviour, ILevelController
     [SerializeField] private GameObject gunObject = null;
     [SerializeField] private CameraFollow cameraController = null;
     [SerializeField] private GameObject finaltext = null;
+    [SerializeField] private AudioClip blindLawByVishesh = null;
 
     private bool dialougeOn = false;
     private bool fading = false;
@@ -18,6 +19,7 @@ public class Level8Chamber : MonoBehaviour, ILevelController
     private void Start()
     {
         StartLevel();
+        AudioController.Instance.PlayBgMusic(blindLawByVishesh);
     }
 
     public void StartLevel()
@@ -27,6 +29,11 @@ public class Level8Chamber : MonoBehaviour, ILevelController
 
     IEnumerator LevelCoroutine()
     {
+        yield return new WaitForSeconds(2);
+        uiController.FadeFromBlack();
+        fading = true;
+        while(fading)
+            yield return null;
         uiController.StartConversationWithColor(finalSequence.dialouges);
         dialougeOn = true;
         while (dialougeOn)
