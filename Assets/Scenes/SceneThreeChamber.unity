@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   cigaretteAnimator: {fileID: 125677123}
+  smokingSound: {fileID: 0}
 --- !u!1 &5932359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,75 +2590,40 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 2554564073393737989, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548508190532858, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548508054051026, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -600
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072129984203, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774797, guid: 523cd9396ea15e44fad5e7d352fd098e,
+    - target: {fileID: 6164548506985838797, guid: 523cd9396ea15e44fad5e7d352fd098e,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554564072939774803, guid: 523cd9396ea15e44fad5e7d352fd098e,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523cd9396ea15e44fad5e7d352fd098e, type: 3}
@@ -4616,9 +4582,9 @@ MonoBehaviour:
   chairLeft: {fileID: 1722554664}
   chairRight: {fileID: 418457521}
   uiController: {fileID: 1927955003}
-  firstDialouge: {fileID: 11400000, guid: 45e478d97786645408c1674115e7e117, type: 2}
-  secondDialouge: {fileID: 11400000, guid: 667be223f0e81f0429a0c3e510528887, type: 2}
-  thirdDialouge: {fileID: 11400000, guid: 54800c088b3b79f4ab48b24b93b41d77, type: 2}
+  firstDialouge: {fileID: 11400000, guid: bea227a4c66089144b41078ff55c5cdf, type: 2}
+  secondDialouge: {fileID: 11400000, guid: 0b531c780bc54df4db9079c6fe32b7d2, type: 2}
+  thirdDialouge: {fileID: 11400000, guid: a5cfb66ed50a449438f8294d6507c561, type: 2}
 --- !u!4 &1300241635
 Transform:
   m_ObjectHideFlags: 0

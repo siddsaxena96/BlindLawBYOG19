@@ -10,14 +10,14 @@ public class UIController : MonoBehaviour
     [Header("Conversation System")]
     public ConversationController conversationController;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
-    
+
     [Header("Fade Panel")]
     [SerializeField] private Image fadePanel = null;
     [SerializeField] private Core.Events.Event fadeComplete = null;
 
     [Header("Highlight Panel")]
     [SerializeField] private GameObject guidanceSystem = null;
-    [SerializeField] private Image highlightPanel = null;    
+    [SerializeField] private Image highlightPanel = null;
     [SerializeField] private Core.Events.Event highlightComplete = null;
     [SerializeField] private RectTransform pointer = null;
     [SerializeField] private Vector2 pointerOffset = Vector2.zero;
@@ -27,7 +27,7 @@ public class UIController : MonoBehaviour
 
     [Header("CourtEvents")]
     [SerializeField] private CourtEvent courtEvent = null;
-    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised, OnSherlock;
+    [SerializeField] private Core.Events.EventWithParameteres OnObjectionRaised = null, OnSherlock = null;
 
     public void ObjectionEvent(int min, int max, float t)
     {
@@ -41,10 +41,10 @@ public class UIController : MonoBehaviour
         o.Add(b);
         o.Add(c);
         o.Add(timer);
-        OnObjectionRaised.Raise(o);
+        OnObjectionRaised?.Raise(o);
     }
 
-    public void Sherlock(string[] s, float alphaLag, float sentLag)
+    public void OldSherlock(string[] s, float alphaLag, float sentLag)
     {
         object a = CourtEvent.CourtEvents.Sherlock;
         object b = s;
@@ -57,6 +57,16 @@ public class UIController : MonoBehaviour
         o.Add(d);
         OnSherlock.Raise(o);
 
+    }
+
+    public void Sherlock(string[] text)
+    {
+        object a = CourtEvent.CourtEvents.Sherlock;
+        object o = text;
+        List<object> ob = new List<object>();
+        ob.Add(a);
+        ob.Add(o);
+        OnSherlock?.Raise(ob);
     }
 
     public void NormalConversation(string dialogue)
@@ -89,9 +99,9 @@ public class UIController : MonoBehaviour
         StartCoroutine(FadePanel(1));
     }
 
-    public void HighlighObject(GameObject objectToHighlight,string guidanceString)
+    public void HighlighObject(GameObject objectToHighlight, string guidanceString)
     {
-        StartCoroutine(HighlighPanel(objectToHighlight,guidanceString));
+        StartCoroutine(HighlighPanel(objectToHighlight, guidanceString));
     }
 
     public void ToggleFadePanel(bool status)
@@ -101,6 +111,8 @@ public class UIController : MonoBehaviour
 
     IEnumerator FadePanel(int fadeFrom)
     {
+        Color final = fadePanel.color;
+        final.a = 1 - fadeFrom;
         switch (fadeFrom)
         {
             case 0:
@@ -122,12 +134,14 @@ public class UIController : MonoBehaviour
                 }
                 break;
         }
+        fadePanel.color = final;
+        yield return new WaitForSeconds(1.5f);
         fadeComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }
 
-    IEnumerator HighlighPanel(GameObject toHighlight,string guidanceString)
-    {        
+    IEnumerator HighlighPanel(GameObject toHighlight, string guidanceString)
+    {
         int oldOrder = toHighlight.GetComponentInChildren<SpriteRenderer>().sortingOrder;
         Transform currentParent = toHighlight.transform.parent;
         toHighlight.transform.SetParent(transform);
@@ -168,10 +182,16 @@ public class UIController : MonoBehaviour
             highlightPanel.color = c;
             yield return new WaitForSeconds(.1f);
         }
-        Debug.Log("Raising Highlight Complete");
+        Debug.Log("Highlight Complete");
         highlightComplete?.Raise();
         yield return new WaitForSeconds(0.1f);
     }
+
+    public void StartConversationWithColor(Dialouge[] dialouges)
+    {
+        conversationController.ConversationWithColor(dialouges);
+    }
+
 
     public void OnItemClicked()
     {

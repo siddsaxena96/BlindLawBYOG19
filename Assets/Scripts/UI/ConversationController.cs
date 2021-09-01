@@ -9,24 +9,28 @@ using System.Text.RegularExpressions;
 public class ConversationController : MonoBehaviour, IEventListener
 {
 
-    [SerializeField] private Text text = null;
+    [SerializeField] private Text resizeText = null;
+    [SerializeField] private Text displayText = null;
     [SerializeField] private Animator anim = null;
     private string[] dialogues = null;
     public string[] Dialogues => dialogues;
     private int dialogueIndex = -1;
     private int dialogueCount => dialogues.Length;
     private bool hasNextDialogue => dialogueIndex < dialogues.Length - 1;
-    [SerializeField] private Button interactButton = null;
+    [SerializeField] private Transform mainGameObject = null;
+    [SerializeField] private Transform interactPanel = null;
     private Coroutine coroutine = null;
 
     private readonly string convoString = "convoString";
     private bool clicked = false;
     [SerializeField] private Core.Events.EventWithParameteres OnConversationEvent = null;
-    [SerializeField] private Core.Events.Event OnConversationStarted, OnConversationEnded = null;
+    [SerializeField] private Core.Events.Event OnConversationStarted = null, OnConversationEnded = null;
     private int dialogueIndexC = -1;
     private int dialogueCountC = -1;
     private bool hasNextDialogueC => dialogueIndexC < dialougesWithColor.Length - 1;
     private Dialouge[] dialougesWithColor = null;
+    [SerializeField] private Core.Events.Event OnClicked = null;
+    [SerializeField] private Core.Events.Event OnStartClick = null;
 
     void Start()
     {
@@ -35,6 +39,7 @@ public class ConversationController : MonoBehaviour, IEventListener
             anim = this.GetComponent<Animator>();
         }
         OnConversationEvent?.RegisterListener(this);
+        OnClicked?.RegisterListener(this);
     }
 
     private void OnDestroy()
@@ -44,7 +49,7 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     public void NormalConversation(string s)
     {
-        text.text = s;
+        resizeText.text = s;
         ResetAnimation();
         StartAnimation();
     }
@@ -66,7 +71,7 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     public void OnEventRaised()
     {
-        throw new System.NotImplementedException();
+        Clicked();
     }
 
     public void OnEventRaisedWithParameters(List<object> parameters)
@@ -127,9 +132,10 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     private void NextConversationC()
     {
-        int index = GetNextDialogueIndexC();
-        this.text.color = dialougesWithColor[index].dialougeColor;
-        this.text.text = dialougesWithColor[index].dialouge;
+        int index = GetNextDialogueIndexC();        
+        this.resizeText.text = "\n" + dialougesWithColor[index].dialouge + "\n";
+        this.displayText.color = dialougesWithColor[index].dialougeColor;
+        this.displayText.text = dialougesWithColor[index].dialouge;
         Conversation(true);
         StartCoroutine(WaitForClickInputC());
 
@@ -158,7 +164,8 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     void NextConversation()
     {
-        this.text.text = dialogues[GetNextDialogueIndex()];
+        this.resizeText.text = dialogues[GetNextDialogueIndex()];
+        this.displayText.text = dialogues[GetNextDialogueIndex()];
         Conversation(true);
         StartCoroutine(WaitForClickInput());
     }
@@ -173,7 +180,8 @@ public class ConversationController : MonoBehaviour, IEventListener
     public void Conversation(bool isHappening)
     {
         anim.SetBool(convoString, true);
-        interactButton.gameObject.SetActive(true);
+        mainGameObject.gameObject.SetActive(true);
+        OnStartClick?.Raise();
     }
 
     public void Clicked()
@@ -184,27 +192,27 @@ public class ConversationController : MonoBehaviour, IEventListener
 
     IEnumerator WaitForClickInput()
     {
-        interactButton.onClick.AddListener(Clicked);
+        //mainGameObject.onClick.AddListener(Clicked);
         while (clicked == false)
         {
             yield return null;
         }
         clicked = false;
         Conversation(false);
-        interactButton.onClick.RemoveAllListeners();
+        //mainGameObject.onClick.RemoveAllListeners();
         TryConversation();
     }
 
     IEnumerator WaitForClickInputC()
     {
-        interactButton.onClick.AddListener(Clicked);
+        //mainGameObject.onClick.AddListener(Clicked);
         while (clicked == false)
         {
             yield return null;
         }
         clicked = false;
         Conversation(false);
-        interactButton.onClick.RemoveAllListeners();
+        //mainGameObject.onClick.RemoveAllListeners();
         TryConversationC();
     }
 }

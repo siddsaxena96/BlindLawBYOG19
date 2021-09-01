@@ -6,6 +6,7 @@ using System;
 public class RightSmokingHandAnimationController : AnimationHandler
 {
     [SerializeField] private Animator cigaretteAnimator = null;
+    [SerializeField] private AudioClip smokingSound = null;
 
     public override void OnReceiveEvent(int eventInput)
     {
@@ -23,5 +24,10 @@ public class RightSmokingHandAnimationController : AnimationHandler
         {
             animator.SetBool("TakeDrag", false);
         }
+    }
+
+    public void PlaySmokingSound()
+    {
+        AudioController.Instance.PlaySFX(smokingSound);
     }
 }

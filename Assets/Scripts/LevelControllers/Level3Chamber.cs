@@ -12,10 +12,10 @@ public class Level3Chamber : MonoBehaviour, ILevelController
     [SerializeField] private Transform spawnPoint = null;
     [SerializeField] private Transform chairLeft = null;
     [SerializeField] private Transform chairRight = null;
-    [SerializeField] private UIController uiController;
-    [SerializeField] private DialougeAsset firstDialouge = null;
-    [SerializeField] private DialougeAsset secondDialouge = null;
-    [SerializeField] private DialougeAsset thirdDialouge = null;
+    [SerializeField] private UIController uiController = null;
+    [SerializeField] private DialougeSequence firstDialouge = null;
+    [SerializeField] private DialougeSequence secondDialouge = null;
+    [SerializeField] private DialougeSequence thirdDialouge = null;
 
     private bool dialougeOn = false;
     private bool fading = false;
@@ -36,7 +36,7 @@ public class Level3Chamber : MonoBehaviour, ILevelController
         fading = true;
         while (fading)
             yield return null;
-        uiController.StartConversation(firstDialouge.dialouges);
+        uiController.StartConversationWithColor(firstDialouge.dialouges);
         dialougeOn = true;
         while (dialougeOn)
             yield return null;
@@ -53,7 +53,7 @@ public class Level3Chamber : MonoBehaviour, ILevelController
 
         client1.OnSit();
         yield return new WaitForSeconds(2);
-        uiController.StartConversation(secondDialouge.dialouges);
+        uiController.StartConversationWithColor(secondDialouge.dialouges);
         dialougeOn = true;
         while (dialougeOn)
             yield return null;
@@ -63,7 +63,7 @@ public class Level3Chamber : MonoBehaviour, ILevelController
         client1.OnWalkTo(spawnPoint);
         while (client1.isWalking)
             yield return null;
-        uiController.StartConversation(thirdDialouge.dialouges);
+        uiController.StartConversationWithColor(thirdDialouge.dialouges);
         dialougeOn = true;
         while (dialougeOn)
             yield return null;

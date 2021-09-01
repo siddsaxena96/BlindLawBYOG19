@@ -12,7 +12,8 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(player.position.x, clampMinX, clampMaxX), yLevel, transform.position.z);
+        if(player!=null)
+            transform.position = new Vector3(Mathf.Clamp(player.position.x, clampMinX, clampMaxX), yLevel, transform.position.z);
     }
     
     public void Shake(float amount, float length)

@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: CutScene2
   m_EditorClassIdentifier: 
   cutSceneEvents:
-  - onSecond: 2
+  - onSecond: 1
+    showSprite: {fileID: -1223216668860354309, guid: 55a0b0267dab1264caf8dd6a053125a5,
+      type: 3}
+    onKeyPress: 101
+  - onSecond: 3
+    showSprite: {fileID: 595652075108135232, guid: 9c1a5224985d4ca4ca233c6f4db1a58a,
+      type: 3}
+    onKeyPress: 102
+  - onSecond: 5
     showSprite: {fileID: -1223216668860354309, guid: 55a0b0267dab1264caf8dd6a053125a5,
       type: 3}
     onKeyPress: 101

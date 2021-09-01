@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad7983d4f9084469d8dc435c6d351d, type: 3}
+  m_Name: DialougeWinner 1
+  m_EditorClassIdentifier: 
+  dialouges:
+  - dialouge: 'Syl : WAIT !! I have evidence against Mr.Hat, sitting so comfortably
+      in the audience'
+    dialougeColor: {r: 1, g: 0.089728706, b: 0, a: 1}
+  - dialouge: 'Syl : He has been harrassing Mr.Hyde and even tried to kill him. I
+      have it all on tape'
+    dialougeColor: {r: 1, g: 0.1291963, b: 0, a: 1}
+  - dialouge: 'Hyde : You saw me get beaten up ?'
+    dialougeColor: {r: 1, g: 1, b: 1, a: 1}
+  - dialouge: 'Syl : And saved your life'
+    dialougeColor: {r: 1, g: 0.13482326, b: 0, a: 1}
+  - dialouge: 'J : Warden, please arrest this man'
+    dialougeColor: {r: 0.078233, g: 1, b: 0, a: 1}
